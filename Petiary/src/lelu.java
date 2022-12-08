@@ -1,5 +1,5 @@
 
 public class lelu {
 	private String lel;
-	// bunu okuyan u
+	// bunu okuyan ul
 }
