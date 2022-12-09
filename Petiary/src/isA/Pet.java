@@ -5,15 +5,15 @@ import java.util.Calendar;
 import hasA.*;
 
 public abstract class Pet {
-	protected int id;//
-	protected String name,//
-					 breed,//
-					 illness;//
-	protected Calendar bDate,//
+	protected int id;
+	protected String name,
+					 breed,
+					 illness;
+	protected Calendar bDate,
 					   checkup=Calendar.getInstance();;
 	protected double weight;
 	protected ArrayList<Vaccination> arr=new ArrayList();
-	protected Vet vet;//
+	protected Vet vet;
 	protected static int NumOfPets=0;
 	
 	public Pet(int id, String name, String breed, Calendar bDate, String illness, Vet vet,double weight) {
