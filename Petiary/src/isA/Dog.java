@@ -1,6 +1,7 @@
 package isA;
 
 import java.util.Calendar;
+import hasA.*;
 
 public class Dog extends Pet {
 	

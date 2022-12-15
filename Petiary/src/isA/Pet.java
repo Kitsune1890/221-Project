@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import hasA.*;
 
-public abstract class Pet {
+public abstract class Pet implements WeightCheck{
 	protected int id;
 	protected String name,
 					 breed,
