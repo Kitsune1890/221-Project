@@ -1,3 +1,5 @@
+package hasA;
+
 
 public class Vet {
 
@@ -65,12 +67,4 @@ public class Vet {
 				+ "\nPhone Number= " + PhoneNumber 
 				+ "\nOpen Days= " + OpenDays;
 	}
-	
-	
-	
-	
 	}
-	
-	
-	
-}
