@@ -3,6 +3,7 @@ package isA;
 import java.util.ArrayList;
 import java.util.Calendar;
 import hasA.*;
+import interfaces.WeightCheck;
 
 public abstract class Pet implements WeightCheck{
 	protected int id;
@@ -24,7 +25,6 @@ public abstract class Pet implements WeightCheck{
 		this.illness = illness;
 		this.bDate = bDate;
 		this.weight=weight;
-		this.arr = arr;
 		this.vet = vet;
 		NumOfPets++;
 	}
