@@ -87,16 +87,14 @@ public class Vaccination implements Serializable{
 		return true;
 	}
 	
-	/* BURDA KAFAM KARISTI NAPICAM
-	 
-	 
-	public String calcVacDate() {
-		
-		
+	//calculates next vaccination date
+	public String calcVacDate(Calendar bDate) {
+		Calendar sysdate = Calendar.getInstance();
+		if(sysdate.) {
+			
+		}
+		return null;
 	}
-	
-	*/
-
 
 	@Override
 	public String toString() {
