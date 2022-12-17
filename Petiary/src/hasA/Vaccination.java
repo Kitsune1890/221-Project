@@ -75,11 +75,16 @@ public class Vaccination implements Serializable{
 		return vactinationDates;
 	}
 
-
+	/* 
+	 * this one is unnecesarry
+	 * 
 	public void setVactinationDates(ArrayList<Calendar> vactinationDates) {
 		this.vactinationDates = vactinationDates;
-	}
+	}*/
 	
+	public boolean addVacDate(Calendar date) {
+		vactinationDates.add(date);
+	}
 	
 	/* BURDA KAFAM KARISTI NAPICAM
 	 
