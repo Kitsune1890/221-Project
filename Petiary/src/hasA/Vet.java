@@ -1,5 +1,7 @@
 package hasA;
 
+import java.util.Calendar;
+
 public class Vet {
 
 	private String name;
@@ -48,8 +50,8 @@ public class Vet {
 
 	/* parameter olarak index girdim baska turlu yapmamız gerekiyorsa duzeltirim */
 
-	public boolean isOpenDays(int index) {
-		return OpenDays[index];
+	public boolean isOpenDays(Calendar day) {
+		return OpenDays[day.DAY_OF_WEEK];
 	}
 
 
