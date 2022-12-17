@@ -7,8 +7,9 @@ public class Dog extends Pet {
 	
 		String dogSize;
 
-		public Dog(int id, String name, String breed, Calendar bDate, String illness, Vet vet, double weight) {
+		public Dog(int id, String name, String breed, Calendar bDate, String illness, Vet vet, double weight, String dogSize) {
 			super(id, name, breed, bDate, illness, vet, weight);
+			this.dogSize = dogSize;
 		}
 
 		@Override
