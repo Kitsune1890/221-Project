@@ -43,7 +43,9 @@ public class PetiarySys {
 			Vaccination v = pet.getArr().get(i);
 			if(v.getId() == vacId) {
 				v.addVacDate(date);
+				return true;
 			}
 		}
+		return false;
 	}
 }
