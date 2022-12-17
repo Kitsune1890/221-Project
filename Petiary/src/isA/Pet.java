@@ -1,5 +1,6 @@
 package isA;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Objects;
@@ -7,7 +8,7 @@ import java.util.Objects;
 import hasA.*;
 import interfaces.WeightCheck;
 
-public abstract class Pet implements WeightCheck{
+public abstract class Pet implements WeightCheck ,Serializable{
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

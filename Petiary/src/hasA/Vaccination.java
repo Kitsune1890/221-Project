@@ -1,9 +1,10 @@
 package hasA;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import java.util.Calendar;
 
-public class Vaccination {
+public class Vaccination implements Serializable{
 
 	private String Name;
 	private int StartMonth;

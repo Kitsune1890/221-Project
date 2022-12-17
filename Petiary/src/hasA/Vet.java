@@ -1,8 +1,9 @@
 package hasA;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class Vet {
+public class Vet implements Serializable{
 
 	private String name;
 	private  String Address;
