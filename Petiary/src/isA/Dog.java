@@ -25,13 +25,13 @@ public class Dog extends Pet {
 		
 		//değerler biraz rastgele oldu :)
 		public void checkWeight() {
-			if(weight>8 && weight<=11)
+			if(weight>0 && weight<=11)
 				dogSize="weak";
 			else if(weight<=20)
 				dogSize="normal";
 			else if(weight<26)
 				dogSize="oversized";
-			else if(weight<35)
+			else if(weight<70)
 				dogSize="obese";
 		}
 

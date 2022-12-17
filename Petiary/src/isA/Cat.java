@@ -28,13 +28,13 @@ public class Cat extends Pet{
 	
 	
 	public void checkWeight() {
-		if(weight>2 && weight<=4)
+		if(weight>0 && weight<=2)
 			catSize="weak";
-		else if(weight<=6)
+		else if(weight<=4)
 			catSize="normal";
-		else if(weight<8)
+		else if(weight<7)
 			catSize="oversized";
-		else if(weight<10)
+		else
 			catSize="obese";
 	}
 
