@@ -10,7 +10,7 @@ public class Vaccination implements Serializable{
 	private int id;
 	private String Name;
 	private int StartMonth;
-	private int vacPeriod;
+	private int vacPeriod; //in months
 	public ArrayList<Calendar> vactinationDates = new ArrayList<>();
 	
 	
@@ -90,14 +90,20 @@ public class Vaccination implements Serializable{
 	
 	//calculates next vaccination date
 	public Calendar calcVacDate(Calendar bDate) {
-		Calendar date;
+		Calendar newDate;
 		Calendar sysdate = Calendar.getInstance();
 		double days = (double) Duration.between(sysdate.toInstant(), bDate.toInstant()).toDays();
 		int months = (int) days / 30;
 		if(months < StartMonth) {
-			date = (Calendar) bDate.clone();
+			newDate = (Calendar) bDate.clone();
+			newDate.add(Calendar.MONTH, months);
+			return newDate;
+		}
+		else if (vactinationDates.size() > 0) {
+			Calendar date = vactinationDates.get(vactinationDates.size() - 1);
 			date.add(Calendar.MONTH, months);
 			return date;
+			
 		}
 		return null;
 	}
