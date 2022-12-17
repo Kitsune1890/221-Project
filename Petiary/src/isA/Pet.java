@@ -2,10 +2,29 @@ package isA;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Objects;
+
 import hasA.*;
 import interfaces.WeightCheck;
 
 public abstract class Pet implements WeightCheck{
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pet other = (Pet) obj;
+		return id == other.id;
+	}
+
 	protected int id;
 	protected String name,
 					 breed,
