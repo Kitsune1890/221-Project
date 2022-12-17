@@ -38,7 +38,7 @@ public class PetiarySys {
 		}
 	}
 	
-	public static boolean addVatination(Pet pet, int vacId, Calendar date) {
+	public static boolean addVaccination(Pet pet, int vacId, Calendar date) {
 		for (int i = 0; i < pet.getArr().size(); i++) {
 			Vaccination v = pet.getArr().get(i);
 			if(v.getId() == vacId) {
