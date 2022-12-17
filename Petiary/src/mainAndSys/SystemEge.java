@@ -2,6 +2,7 @@ package mainAndSys;
 
 import java.util.HashSet;
 
+import hasA.Vaccination;
 import hasA.Vet;
 import isA.Pet;
 
@@ -32,4 +33,11 @@ public class SystemEge {
 		}
 		return str;
 	}
-
+	public static String display(Pet pet) {
+		String str = "";
+		for(Vaccination temp : pet.getArr()) {
+			str += temp.toString();
+		}
+		return str;
+	}
+}
