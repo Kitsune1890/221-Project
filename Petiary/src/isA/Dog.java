@@ -25,15 +25,29 @@ public class Dog extends Pet {
 		}
 		
 		//değerler biraz rastgele oldu :)
-		public void checkWeight() {
-			if(weight>0 && weight<=11)
-				dogSize="weak";
-			else if(weight<=20)
-				dogSize="normal";
-			else if(weight<26)
-				dogSize="oversized";
-			else if(weight<70)
-				dogSize="obese";
+		public boolean checkWeight() {
+			if(dogSize.equalsIgnoreCase("small") && weight>4&&weight<8.5) {
+				return true;
+			}
+			else if(dogSize.equalsIgnoreCase("middle") && weight>15&&weight<25) {
+				return true;
+			}
+			else if(dogSize.equalsIgnoreCase("big") && weight>35&&weight<45){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+
+	
+		
+		@Override
+		public boolean isHealthy() {
+			if(illness.isBlank() && checkWeight())
+				return true;
+			else
+				return false;
 		}
 
 	

@@ -27,15 +27,20 @@ public class Cat extends Pet{
 	}
 	
 	
-	public void checkWeight() {
-		if(weight>0 && weight<=2)
-			catSize="weak";
-		else if(weight<=4)
-			catSize="normal";
-		else if(weight<7)
-			catSize="oversized";
+	public boolean checkWeight() {
+		if(weight>0 && weight<=4)
+		    return true;
+		else 
+			return false;
+	}
+
+	@Override
+	public boolean isHealthy() {
+		// TODO Auto-generated method stub
+		if(illness.isBlank() && checkWeight())
+			return true;
 		else
-			catSize="obese";
+			return false;
 	}
 
 	
