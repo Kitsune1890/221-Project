@@ -2,8 +2,10 @@ package mainAndSys;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -98,5 +100,26 @@ public class SystemEge {
 			return false;
 		}
 		return true;
+	}
+	
+	
+	public static boolean writeIntoFile() {
+		try {
+			FileOutputStream pf = new FileOutputStream(PetSave);
+			FileOutputStream vf = new FileOutputStream(VetSave);
+			
+			ObjectOutputStream POS = new ObjectOutputStream(pf);
+			ObjectOutputStream VOS = new ObjectOutputStream(vf);
+			
+			POS.writeObject((HashSet<Pet>)pets);
+			VOS.writeObject((HashSet<Vet>)vets);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+		
 	}
 }
