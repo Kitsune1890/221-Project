@@ -69,13 +69,21 @@ public class SystemEge {
 	
 	public static boolean readFromFile() throws ClassNotFoundException {
 		try {
-			ObjectInputStream POS = new ObjectInputStream(new FileInputStream(PetSave));
-			ObjectInputStream VOS = new ObjectInputStream(new FileInputStream(VetSave));
-			ObjectInputStream TOS = new ObjectInputStream(new FileInputStream(templateVac));
+			FileInputStream pf = new FileInputStream(PetSave);
+			FileInputStream vf = new FileInputStream(VetSave);
+			FileInputStream tf = new FileInputStream(templateVac);
+			
+			ObjectInputStream POS = new ObjectInputStream(pf);
+			ObjectInputStream VOS = new ObjectInputStream(vf);
+			ObjectInputStream TOS = new ObjectInputStream(tf);
 			
 			pets.addAll((HashSet<Pet>)POS.readObject());
-			vets.addAll((HashSet<Vet>)POS.readObject());
-			template.addAll((ArrayList<Vaccination>)POS.readObject());
+			vets.addAll((HashSet<Vet>)VOS.readObject());
+			template.addAll((ArrayList<Vaccination>)TOS.readObject());
+			
+			pf.close();
+			vf.close();
+			tf.close();
 			
 			POS.close();
 			VOS.close();
