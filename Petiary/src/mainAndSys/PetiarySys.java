@@ -8,6 +8,7 @@ import java.util.TreeSet;
 import hasA.Vaccination;
 import hasA.Vet;
 import isA.Cat;
+import isA.Dog;
 import isA.Pet;
 
 public class PetiarySys {
@@ -27,13 +28,17 @@ public class PetiarySys {
 		}
 	}
 	
-	public static boolean addDog(int id, String name, String breed, Calendar bDate, String illness, Vet vet, double weight) {
-		Pet p = new Cat(id, name, breed, bDate, illness, vet, weight);
+	public static boolean addDog(int id, String name, String breed, Calendar bDate, String illness, Vet vet, double weight, String dogSize) {
+		Pet p = new Dog(id, name, breed, bDate, illness, vet, weight, dogSize);
 		if(pets.add(p)) {
 			return true;
 		}
 		else {
 			return false;
 		}
+	}
+	
+	public static boolean addVatination(int pet, int vacId, Calendar date) {
+		
 	}
 }

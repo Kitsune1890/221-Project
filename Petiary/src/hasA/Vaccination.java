@@ -5,26 +5,38 @@ import java.util.Calendar;
 
 public class Vaccination {
 
+	private int id;
 	private String Name;
 	private int StartMonth;
 	private int vacPeriod;
 	public ArrayList<Calendar> vactinationDates = new ArrayList<>();
 	
 	
-	public Vaccination(String name, int startMonth, int vacPeriod) {
+	public Vaccination(int id, String name, int startMonth, int vacPeriod) {
 		super();
+		this.id = id;
 		this.Name = name;
 		this.StartMonth = startMonth;
 		this.vacPeriod = vacPeriod;
 	}
 
 
-	public Vaccination(String name, int startMonth, int vacPeriod, ArrayList<Calendar> vactinationDates) {
+	public Vaccination(int id, String name, int startMonth, int vacPeriod, ArrayList<Calendar> vactinationDates) {
 		super();
+		this.id = id;
 		this.Name = name;
 		this.StartMonth = startMonth;
 		this.vacPeriod = vacPeriod;
 		this.vactinationDates = vactinationDates;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 
