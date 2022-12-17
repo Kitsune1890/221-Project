@@ -50,7 +50,7 @@ public class Vet {
 
 	/* parameter olarak index girdim baska turlu yapmamız gerekiyorsa duzeltirim */
 
-	public boolean isOpenDays(Calendar day) {
+	public boolean isOpen(Calendar day) {
 		return OpenDays[day.DAY_OF_WEEK];
 	}
 
