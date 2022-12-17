@@ -2,6 +2,6 @@ package interfaces;
 
 public interface WeightCheck {
 	
-	public void checkWeight();
+	public boolean checkWeight();
 	
 }

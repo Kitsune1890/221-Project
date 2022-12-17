@@ -111,14 +111,9 @@ public abstract class Pet implements WeightCheck ,Serializable{
 		return(c.get(Calendar.YEAR)-bDate.get(Calendar.YEAR));
 	}
 	
-	public boolean isHealthy() {
-		if(illness.isBlank())
-			return true;
-		else 
-			return false;
-	}
+	public abstract boolean isHealthy();
 	
-	public abstract void checkWeight();
+	public abstract boolean checkWeight();
 	
 	//şu anki tarihten iki ay sonra diye ayarlıyorum. Olmazsa sonra düzeltirim
 	public void calcNextCheckup() {
