@@ -84,6 +84,7 @@ public class Vaccination implements Serializable{
 	
 	public boolean addVacDate(Calendar date) {
 		vactinationDates.add(date);
+		return true;
 	}
 	
 	/* BURDA KAFAM KARISTI NAPICAM

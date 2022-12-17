@@ -57,4 +57,15 @@ public class PetiarySys {
 		
 		return false;
 	}
+	
+	public static boolean addVet(String name, String address, String phoneNumber, boolean[] openDays) {
+		Vet v = new Vet(name, address, phoneNumber, openDays);
+		if(vets.add(v)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
+	}
 }
