@@ -46,6 +46,15 @@ public class PetiarySys {
 				return true;
 			}
 		}
+		
+		for (int i = 0; i < vacTemplate.size(); i++) {
+			if(vacTemplate.get(i).getId() == vacId) {
+				Vaccination v = (Vaccination) vacTemplate.clone();
+				pet.getArr().add(v);
+				return true;
+			}
+		}
+		
 		return false;
 	}
 }
