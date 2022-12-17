@@ -69,6 +69,28 @@ public class SystemEge {
 		return null;
 	}
 	
+	public static boolean removePet(String id) {
+		int Id = Integer.parseInt(id);
+		
+		for(Pet temp: pets) {
+			if(temp.getId() == Id) {
+				pets.remove(temp);
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public static boolean removeVet(String name) {
+		for(Vet temp: vets) {
+			if(temp.getName().equals(name)) {
+				vets.remove(temp);
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public static boolean readFromFile() throws ClassNotFoundException {
 		try {
 			FileInputStream pf = new FileInputStream(PetSave);
