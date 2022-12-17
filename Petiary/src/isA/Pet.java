@@ -32,7 +32,7 @@ public abstract class Pet implements WeightCheck{
 	protected Calendar bDate,
 					   checkup=Calendar.getInstance();;
 	protected double weight;
-	protected ArrayList<Vaccination> arr=new ArrayList();
+	protected ArrayList<Vaccination> arr = new ArrayList();
 	protected Vet vet;
 	protected static int NumOfPets=0;
 	
