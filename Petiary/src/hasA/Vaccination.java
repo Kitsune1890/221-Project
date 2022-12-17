@@ -1,5 +1,6 @@
 package hasA;
 import java.io.Serializable;
+import java.time.Duration;
 import java.util.ArrayList;
 
 import java.util.Calendar;
@@ -90,7 +91,9 @@ public class Vaccination implements Serializable{
 	//calculates next vaccination date
 	public String calcVacDate(Calendar bDate) {
 		Calendar sysdate = Calendar.getInstance();
-		if(sysdate.) {
+		double days = (double) Duration.between(sysdate.toInstant(), bDate.toInstant()).toDays();
+		int months = days
+		if() {
 			
 		}
 		return null;
