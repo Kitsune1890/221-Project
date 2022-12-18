@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashSet;
 
 import hasA.Vaccination;
@@ -136,6 +137,11 @@ public class SystemEge {
 			POS.writeObject((HashSet<Pet>)pets);
 			VOS.writeObject((HashSet<Vet>)vets);
 			
+			pf.close();
+			vf.close();
+			
+			POS.close();
+			VOS.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -144,4 +150,5 @@ public class SystemEge {
 		return true;
 		//
 	}
+	
 }
