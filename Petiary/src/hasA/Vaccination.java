@@ -75,13 +75,6 @@ public class Vaccination implements Serializable{
 	public ArrayList<Calendar> getVactinationDates() {
 		return vactinationDates;
 	}
-
-	/* 
-	 * this one is unnecesarry
-	 * 
-	public void setVactinationDates(ArrayList<Calendar> vactinationDates) {
-		this.vactinationDates = vactinationDates;
-	}*/
 	
 	public boolean addVacDate(Calendar date) {
 		vactinationDates.add(date);
