@@ -24,15 +24,15 @@ public class Dog extends Pet {
 					+"\ncatSize=" + dogSize; 
 		}
 		
-		//değerler biraz rastgele oldu :)
+		
 		public boolean checkWeight() {
-			if(dogSize.equalsIgnoreCase("small") && weight>4&&weight<8.5) {
+			if(dogSize.equalsIgnoreCase("small") && weight>4&&weight<10) {
 				return true;
 			}
-			else if(dogSize.equalsIgnoreCase("middle") && weight>15&&weight<25) {
+			else if(dogSize.equalsIgnoreCase("middle") && weight>10&&weight<25) {
 				return true;
 			}
-			else if(dogSize.equalsIgnoreCase("big") && weight>35&&weight<45){
+			else if(dogSize.equalsIgnoreCase("big") && weight>25&&weight<40){
 				return true;
 			}
 			else {

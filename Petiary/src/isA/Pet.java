@@ -1,6 +1,6 @@
 package isA;
 
-import java.io.Serializable;
+import java.io.Serializable;import java.time.Month;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Objects;
@@ -9,35 +9,19 @@ import hasA.*;
 import interfaces.WeightCheck;
 
 public abstract class Pet implements WeightCheck ,Serializable{
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Pet other = (Pet) obj;
-		return id == other.id;
-	}
 
 	protected int id;
 	protected String name,
 					 breed,
 					 illness;
 	protected Calendar bDate,
-					   checkup=Calendar.getInstance();;
+					   checkup;
 	protected double weight;
 	protected ArrayList<Vaccination> arr = new ArrayList();
 	protected Vet vet;
 	protected static int NumOfPets=0;
 	
-	public Pet(int id, String name, String breed, Calendar bDate, String illness, Vet vet,double weight) {
+	public Pet(int id, String name, String breed, Calendar bDate, String illness, Vet vet, double weight) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -111,13 +95,39 @@ public abstract class Pet implements WeightCheck ,Serializable{
 		return(c.get(Calendar.YEAR)-bDate.get(Calendar.YEAR));
 	}
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pet other = (Pet) obj;
+		return id == other.id;
+	}
+	
 	public abstract boolean isHealthy();
 	
 	public abstract boolean checkWeight();
 	
-	//şu anki tarihten iki ay sonra diye ayarlıyorum. Olmazsa sonra düzeltirim
 	public void calcNextCheckup() {
-		Calendar c = Calendar.getInstance();
-		checkup.set(c.get(Calendar.YEAR),c.get(Calendar.MONTH)+2,c.get(Calendar.DAY_OF_MONTH));
+		if(checkup == null) {
+			checkup = Calendar.getInstance();
+			checkup.add(Calendar.MONTH, 2);
+		}
+		else {
+			if(isHealthy()) {
+				checkup.add(Calendar.MONTH, 3);
+			}
+			else {
+				checkup.add(Calendar.MONTH, 2);
+			}
+		}
 	}
 }
