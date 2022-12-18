@@ -52,7 +52,7 @@ public class Vet implements Serializable{
 	/* parameter olarak index girdim baska turlu yapmamız gerekiyorsa duzeltirim */
 
 	public boolean isOpen(Calendar day) {
-		return OpenDays[day.DAY_OF_WEEK];
+		return OpenDays[day.DAY_OF_WEEK - 1];
 	}
 
 
