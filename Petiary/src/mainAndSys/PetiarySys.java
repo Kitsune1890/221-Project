@@ -74,7 +74,7 @@ public class PetiarySys {
 		
 		for (int i = 0; i < vacTemplate.size(); i++) {
 			if(vacTemplate.get(i).getId() == vacId) {
-				Vaccination v = vacTemplate.get(i);
+				Vaccination v = (Vaccination) vacTemplate.clone();
 				pet.getArr().add(v);
 				return true;
 			}
