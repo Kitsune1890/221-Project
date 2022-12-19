@@ -8,9 +8,9 @@ public class PetiaryMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
 		
-
+		
+//for test purpose
 		
 		boolean[] arr = {true, true, true, true, true, true, true};
 		
