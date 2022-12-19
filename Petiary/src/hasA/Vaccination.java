@@ -11,7 +11,7 @@ public class Vaccination implements Serializable{
 	private String Name;
 	private int StartMonth;// min age to be vaccinated
 	private int vacPeriod; //in months
-	public ArrayList<Calendar> vactinationDates = new ArrayList<>();
+	public ArrayList<Calendar> vactinationDates;
 	
 	
 	public Vaccination(int id, String name, int startMonth, int vacPeriod) {
@@ -20,6 +20,7 @@ public class Vaccination implements Serializable{
 		this.Name = name;
 		this.StartMonth = startMonth;
 		this.vacPeriod = vacPeriod;
+		this. vactinationDates =  new ArrayList<Calendar>();
 	}
 
 
