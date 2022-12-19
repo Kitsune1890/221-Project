@@ -21,7 +21,7 @@ public class PetiarySys {
 	private static HashSet<Pet> pets = new HashSet<Pet>();
 	private static HashSet<Vet> vets = new HashSet<Vet>();
 	private static ArrayList<Vaccination> vacTemplate = new ArrayList<Vaccination>();
-	private final static String PetSave = "petSave.bin", VetSave = "vetSave.bin", templateVac = "template.bin";
+	private final static String PetSave = "petSave.bin", VetSave = "vetSave.bin", templateVacSave = "template.bin";
 	
 	public static boolean addCat(int id, String name, String breed, Calendar bDate, String illness, Vet vet, double weight) {
 		Pet p = new Cat(id, name, breed, bDate, illness, vet, weight);
@@ -177,7 +177,7 @@ public class PetiarySys {
 		try {
 			FileInputStream pf = new FileInputStream(PetSave);
 			FileInputStream vf = new FileInputStream(VetSave);
-			FileInputStream tf = new FileInputStream(templateVac);
+			FileInputStream tf = new FileInputStream(templateVacSave);
 			
 			ObjectInputStream POS = new ObjectInputStream(pf);
 			ObjectInputStream VOS = new ObjectInputStream(vf);
