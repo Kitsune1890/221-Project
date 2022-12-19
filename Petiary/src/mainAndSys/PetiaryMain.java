@@ -6,8 +6,13 @@ public class PetiaryMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		PetiarySys.addCat(111,"tekir", "mahmut", Calendar.getInstance(), "", null, 10);
-		PetiarySys.getPets()args.
+		
+		boolean[] arr = {true, true, true, true, true, true, true};
+		
+		PetiarySys.addVet("haha", "ankara", "23423424", arr);
+		
+		PetiarySys.addCat(111,"tekir", "mahmut", Calendar.getInstance(), "", PetiarySys.searchVet("haha"), 10);
+		PetiarySys.searchPet("111").calcNextCheckup();
 		System.out.println(PetiarySys.displayPet());
 		
 	}
