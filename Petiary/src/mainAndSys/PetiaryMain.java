@@ -16,7 +16,7 @@ public class PetiaryMain {
 		
 		PetiarySys.addVet("haha", "ankara", "23423424", arr);
 		
-		PetiarySys.getVacTemplate().add(new Vaccination(111,  "fvdv",5,  2, new ArrayList<Vaccination>()));
+		PetiarySys.getVacTemplate().add(new Vaccination(111,  "fvdv",5,  2));
 		PetiarySys.addCat(111,"tekir", "mahmut", Calendar.getInstance(), "", PetiarySys.searchVet("haha"), 10);
 		PetiarySys.addVaccination(PetiarySys.searchPet("111"),111,Calendar.getInstance());
 		System.out.println("dvsklvkl"+PetiarySys.displayVac(PetiarySys.searchPet("111")));
