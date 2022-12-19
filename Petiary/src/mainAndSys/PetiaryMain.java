@@ -10,7 +10,7 @@ public class PetiaryMain {
 		PetiarySys.searchPet("111").calcNextCheckup();
 		System.out.println(PetiarySys.displayPet());
 		
-		PetiarySys.addVet("ahmet", "çanakkale", "", null)
+		PetiarySys.addVet("ahmet", "çanakkale", "555", {true,true,true,true,true,true,true});
 		
 	}
 

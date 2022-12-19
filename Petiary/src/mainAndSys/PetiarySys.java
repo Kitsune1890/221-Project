@@ -33,19 +33,13 @@ public class PetiarySys {
 		}
 	}
 	
-	
-	
 	public static HashSet<Pet> getPets() {
 		return pets;
 	}
 
-
-
 	public static HashSet<Vet> getVets() {
 		return vets;
 	}
-
-
 
 	public static ArrayList<Vaccination> getVacTemplate() {
 		return vacTemplate;
