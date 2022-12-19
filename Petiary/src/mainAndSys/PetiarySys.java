@@ -53,8 +53,8 @@ public class PetiarySys {
 
 
 
-	public static String getTemplatevac() {
-		return templateVac;
+	public static String getTemplateVacSave() {
+		return templateVacSave;
 	}
 
 
