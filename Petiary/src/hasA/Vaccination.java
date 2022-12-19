@@ -9,7 +9,7 @@ public class Vaccination implements Serializable{
 
 	private int id;
 	private String Name;
-	private int StartMonth;
+	private int StartMonth;// min age to be vaccinated
 	private int vacPeriod; //in months
 	public ArrayList<Calendar> vactinationDates = new ArrayList<>();
 	

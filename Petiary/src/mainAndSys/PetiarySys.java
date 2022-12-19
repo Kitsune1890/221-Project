@@ -33,6 +33,32 @@ public class PetiarySys {
 		}
 	}
 	
+	
+	
+	public static HashSet<Pet> getPets() {
+		return pets;
+	}
+
+
+
+	public static HashSet<Vet> getVets() {
+		return vets;
+	}
+
+
+
+	public static ArrayList<Vaccination> getVacTemplate() {
+		return vacTemplate;
+	}
+
+
+
+	public static String getTemplatevac() {
+		return templateVac;
+	}
+
+
+
 	public static boolean addDog(int id, String name, String breed, Calendar bDate, String illness, Vet vet, double weight, String dogSize) {
 		Pet p = new Dog(id, name, breed, bDate, illness, vet, weight, dogSize);
 		if(pets.add(p)) {
