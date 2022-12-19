@@ -23,7 +23,7 @@ public class PetiaryMain {
 		System.out.println(PetiarySys.displayPet());
 		
 		//PetiarySys.addVet("ahmet", "çanakkale", "555", new boolean[]{true,true,true,true,true,true,true});
-		
+		//
 	}
 
 }
