@@ -12,7 +12,7 @@ public class PetiaryMain {
 		
 
 		
-		/*boolean[] arr = {true, true, true, true, true, true, true};
+		boolean[] arr = {true, true, true, true, true, true, true};
 		
 		PetiarySys.addVet("haha", "ankara", "23423424", arr);
 		
@@ -24,14 +24,6 @@ public class PetiaryMain {
 		PetiarySys.searchPet("111").calcNextCheckup();
 		System.out.println(PetiarySys.displayPet());
 		
-		PetiarySys.writeIntoFile();*/
-		try {
-			PetiarySys.readFromFile();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(PetiarySys.displayPet());
 		
 		//PetiarySys.addVet("ahmet", "çanakkale", "555", new boolean[]{true,true,true,true,true,true,true});
 		//
