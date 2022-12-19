@@ -83,22 +83,25 @@ public class Vaccination implements Serializable{
 	
 	//calculates next vaccination date
 	public Calendar calcVacDate(Calendar bDate) {
-		Calendar newDate;
+		Calendar newDate = null;
 		Calendar sysdate = Calendar.getInstance();
 		double days = (double) Duration.between(sysdate.toInstant(), bDate.toInstant()).toDays();
 		int months = (int) days / 30;
-		if(months < StartMonth) {
-			newDate = (Calendar) bDate.clone();
-			newDate.add(Calendar.MONTH, months);
-			return newDate;
+		
+		if (vactinationDates.size() == 0) {
+			if(months < StartMonth) {
+				newDate = (Calendar) bDate.clone();
+				newDate.add(Calendar.MONTH, StartMonth);
+			}
+			else {
+				newDate = (Calendar) Calendar.getInstance();
+			}
+		}		
+		else {
+			newDate = vactinationDates.get(vactinationDates.size() - 1);
+			newDate.add(Calendar.MONTH, vacPeriod);
 		}
-		else if (vactinationDates.size() > 0) {
-			Calendar date = vactinationDates.get(vactinationDates.size() - 1);
-			date.add(Calendar.MONTH, months);
-			return date;
-			
-		}
-		return null;
+		return newDate;
 	}
 
 	@Override
