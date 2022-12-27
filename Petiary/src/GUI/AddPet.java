@@ -24,7 +24,6 @@ public class AddPet extends JFrame {
 	private JTextField illnessField;
 	private JTextField petIdField;
 	
-	private MainFrame frame=null;
 	
 	
 
