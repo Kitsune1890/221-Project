@@ -48,7 +48,7 @@ public class PetiarySys {
 		return vacTemplate;
 	}
 
-	public static int getTemplateVacIndex(String name) {
+	public static int getVacTemplateIndex(String name) {
 		for (int i = 0; i < vacTemplate.size(); i++) {
 			if(vacTemplate.get(i).getName().equals(name)) {
 				return i;
