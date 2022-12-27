@@ -70,7 +70,7 @@ public class AddVac extends JFrame {
 		JButton add_bt = new JButton("Add\r\n");
 		add_bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
+				/*try {
 					Calendar calendar = PetiarySys.stringtoCalendar(date_tf.getText());
 					if(PetiarySys.searchPet(getName()).getVac().size() == 0) {
 						ArrayList<Vaccination> temp = PetiarySys.getVacTemplate();
@@ -78,13 +78,11 @@ public class AddVac extends JFrame {
 						
 					}
 					
-					
-					
 				} catch (ParseException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
+				*/
 			}
 		});
 		add_bt.setBounds(108, 170, 89, 23);
