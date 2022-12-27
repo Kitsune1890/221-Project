@@ -210,8 +210,9 @@ public class AddPet extends JFrame {
 					
 					double weight=Double.parseDouble(weightField.getText());
 					
+					boolean completed=false;
 					if(cat.isSelected()) {
-						PetiarySys.addCat(petid, name, breed, cal, illness, vet, weight);
+						completed=PetiarySys.addCat(petid, name, breed, cal, illness, vet, weight);
 						
 					}
 					else
@@ -221,7 +222,14 @@ public class AddPet extends JFrame {
 						}
 						else {
 							String dogsize=(dogsizeField.getText());
-							PetiarySys.addDog(petid, name, breed, cal, illness, vet, weight,dogsize );
+							completed=PetiarySys.addDog(petid, name, breed, cal, illness, vet, weight,dogsize );
+						}
+						
+						if(completed) {
+							txtADisplay.setText("couln't added");
+						}
+						else {
+							txtADisplay.setText("added");
 						}
 						petid++;
 						
