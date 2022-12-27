@@ -5,11 +5,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.JTextComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextPane;
 import javax.swing.JList;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
@@ -24,6 +26,12 @@ public class MainFrame extends JFrame {
 	private AddPet addpet;
 	private AddVet addvet;
 
+	
+	ImageIcon cat = new ImageIcon("cat.jpeg");
+	ImageIcon dog = new ImageIcon("dog.jpeg");
+	
+	private JLabel imageLbl;
+    
 	/**
 	 * Create the frame.
 	 */
@@ -45,24 +53,39 @@ public class MainFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(613, 11, 68, 73);
-		contentPane.add(lblNewLabel);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(164, 27, 415, 31);
-		contentPane.add(comboBox);
-		
-		JButton btnShow = new JButton("Show");
-		btnShow.setBounds(318, 69, 115, 23);
-		contentPane.add(btnShow);
-		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(87, 103, 626, 359);
 		contentPane.add(scrollPane);
 		
-		JTextArea txtADisplay = new JTextArea();
-		scrollPane.setViewportView(txtADisplay);
+		JTextArea txtArea = new JTextArea();
+		scrollPane.setViewportView(txtArea);
+		
+		JLabel imageLbl = new JLabel("");
+		imageLbl.setBounds(613, 11, 68, 73);
+		contentPane.add(imageLbl);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(comboBox.getSelectedItem().equals("cat"))
+					imageLbl.setIcon(cat);
+				else
+					imageLbl.setIcon(dog);
+			}
+		});
+		comboBox.setBounds(164, 27, 415, 31);
+		contentPane.add(comboBox);
+		
+		JButton btnShow = new JButton("Show");
+		btnShow.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtArea.setText(comboBox.getSelectedItem().toString());  
+			}
+		});
+		btnShow.setBounds(318, 69, 115, 23);
+		contentPane.add(btnShow);
+		
+		
 		
 		JButton btnAddPet = new JButton("Add / Remove Pet");
 		btnAddPet.addActionListener(new ActionListener() {
