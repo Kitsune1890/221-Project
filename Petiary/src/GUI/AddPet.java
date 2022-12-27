@@ -227,6 +227,7 @@ public class AddPet extends JFrame {
 					
 					if(completed) {
 						txtADisplay.setText("The pet " + name + " is added!");
+						PetiarySys.writeIntoFile();
 					}
 					else {
 						txtADisplay.setText("The pet " + name + " already exists!");
