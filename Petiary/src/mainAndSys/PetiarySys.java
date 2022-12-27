@@ -109,15 +109,8 @@ public class PetiarySys {
 		}
 		return str;
 	}
-	/*
-	public static String displayVac() {
-		String str = "";
-		for(Pet temp : pets) {
-			str += temp.toString();
-		}
-		return str;
-	}
-	*/
+
+
 	public static String displayVac(Pet pet) {
 		String str = "";
 		for(Vaccination temp : pet.getArr()) {
