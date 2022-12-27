@@ -5,6 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import hasA.Vet;
+import mainAndSys.PetiarySys;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -12,7 +16,11 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
+import java.util.HashSet;
 import java.awt.event.ActionEvent;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
 
 public class AddPet extends JFrame {
 
@@ -23,16 +31,31 @@ public class AddPet extends JFrame {
 	private JTextField weightField;
 	private JTextField illnessField;
 	private JTextField petIdField;
+	private final ButtonGroup catOrDog = new ButtonGroup();
+	
+	private static int petid=123;
 	
 	
-	
+	public String[] getnames()
+	{
+		HashSet<Vet> vetset=PetiarySys.getVets();
+		String[] names=new String[vetset.size()];
+		int n=0;
+		for(Vet v : vetset) 
+		{
+			names[n]= v.getName();
+			n++;
+		}
+		
+		return names;
+	}
 
 	/**
 	 * Create the frame.
 	 */
 	public AddPet(MainFrame fr) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 558, 369);
+		setBounds(100, 100, 561, 402);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -40,80 +63,84 @@ public class AddPet extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Name:");
-		lblNewLabel.setBounds(22, 24, 93, 14);
+		lblNewLabel.setBounds(22, 63, 93, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Breed:");
-		lblNewLabel_1.setBounds(22, 49, 93, 14);
+		lblNewLabel_1.setBounds(22, 88, 93, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Birthdate:");
-		lblNewLabel_2.setBounds(22, 74, 93, 14);
+		lblNewLabel_2.setBounds(22, 113, 93, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Weight:");
-		lblNewLabel_3.setBounds(22, 99, 93, 14);
+		lblNewLabel_3.setBounds(22, 138, 93, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Illnesses:");
-		lblNewLabel_4.setBounds(22, 124, 93, 14);
+		lblNewLabel_4.setBounds(22, 163, 93, 14);
 		contentPane.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Veterinary:");
-		lblNewLabel_5.setBounds(22, 147, 93, 14);
+		lblNewLabel_5.setBounds(22, 186, 93, 14);
 		contentPane.add(lblNewLabel_5);
 		
 		nameField = new JTextField();
-		nameField.setBounds(125, 21, 129, 20);
+		nameField.setBounds(125, 60, 129, 20);
 		contentPane.add(nameField);
 		nameField.setColumns(10);
 		
 		breedField = new JTextField();
-		breedField.setBounds(125, 46, 129, 20);
+		breedField.setBounds(125, 85, 129, 20);
 		breedField.setColumns(10);
 		contentPane.add(breedField);
 		
 		bdateField = new JTextField();
-		bdateField.setBounds(125, 71, 129, 20);
+		bdateField.setBounds(125, 110, 129, 20);
 		bdateField.setColumns(10);
 		contentPane.add(bdateField);
 		
 		weightField = new JTextField();
-		weightField.setBounds(125, 96, 129, 20);
+		weightField.setBounds(125, 135, 129, 20);
 		weightField.setColumns(10);
 		contentPane.add(weightField);
 		
 		illnessField = new JTextField();
-		illnessField.setBounds(125, 121, 129, 20);
+		illnessField.setBounds(125, 160, 129, 20);
 		illnessField.setColumns(10);
 		contentPane.add(illnessField);
 		
 		JComboBox cbVetList = new JComboBox();
-		cbVetList.setBounds(125, 147, 129, 22);
+		String[] arr=new String[20];
+		cbVetList.setModel(new DefaultComboBoxModel(getnames()));
+		
+		
+		cbVetList.setBounds(125, 186, 129, 22);
 		contentPane.add(cbVetList);
 		
 		JLabel lblNewLabel_6 = new JLabel("Id to search:");
-		lblNewLabel_6.setBounds(86, 224, 78, 20);
+		lblNewLabel_6.setBounds(72, 271, 78, 20);
 		contentPane.add(lblNewLabel_6);
 		
 		JButton btnAddPet = new JButton("Add");
 		
-		btnAddPet.setBounds(99, 180, 89, 23);
+		btnAddPet.setBounds(99, 219, 89, 23);
 		contentPane.add(btnAddPet);
 		
 		petIdField = new JTextField();
-		petIdField.setBounds(171, 224, 36, 20);
+		petIdField.setBounds(157, 271, 36, 20);
 		contentPane.add(petIdField);
 		petIdField.setColumns(10);
 		
 		JButton btnSearchPet = new JButton("Search");
 		
-		btnSearchPet.setBounds(35, 254, 108, 23);
+		btnSearchPet.setBounds(21, 301, 108, 23);
 		contentPane.add(btnSearchPet);
 		
 		JButton btnDeletePet = new JButton("Delete Pet");
 		
-		btnDeletePet.setBounds(146, 254, 108, 23);
+		btnDeletePet.setBounds(132, 301, 108, 23);
 		contentPane.add(btnDeletePet);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -125,11 +152,29 @@ public class AddPet extends JFrame {
 		
 		JButton btnClose = new JButton("Close");
 		
-		btnClose.setBounds(103, 287, 85, 21);
+		btnClose.setBounds(89, 334, 85, 21);
 		contentPane.add(btnClose);
+		
+		JRadioButton dog = new JRadioButton("dog");
+		catOrDog.add(dog);
+		dog.setBounds(125, 24, 62, 21);
+		contentPane.add(dog);
+		
+		JRadioButton cat = new JRadioButton("cat");
+		catOrDog.add(cat);
+		cat.setBounds(190, 24, 79, 21);
+		contentPane.add(cat);
+		
+		JLabel lblNewLabel_7 = new JLabel("Select Your Pet:  ");
+		lblNewLabel_7.setBounds(23, 28, 92, 13);
+		contentPane.add(lblNewLabel_7);
+		
+	
+		
 		
 		btnAddPet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		

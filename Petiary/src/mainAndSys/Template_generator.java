@@ -1,5 +1,6 @@
 package mainAndSys;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,10 +8,9 @@ import hasA.Vaccination;
 
 public class Template_generator {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
-		ArrayList<Vaccination> vac = new ArrayList();
 		
 		for (int i = 0; i < 5; i++) {
 			System.out.println("ID");
@@ -25,14 +25,16 @@ public class Template_generator {
 			int period = sc.nextInt();
 			sc.hasNextLine();
 			
-			vac.add(new Vaccination(id,Name,start,period));
+			PetiarySys.getVacTemplate().add(new Vaccination(id,Name,start,period));
 			
 			System.out.println("\n\n\n");
 		}
 		
-		for(Vaccination temp : vac) {
+		for(Vaccination temp : PetiarySys.getVacTemplate()) {
 			System.out.println(temp.toString());
+			
 		}
+		PetiarySys.writeTemplate();
 	}
 
 }
