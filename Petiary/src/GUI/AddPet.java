@@ -213,7 +213,6 @@ public class AddPet extends JFrame {
 					boolean completed=false;
 					if(cat.isSelected()) {
 						completed=PetiarySys.addCat(petid, name, breed, cal, illness, vet, weight);
-						
 					}
 					else
 					{
@@ -224,16 +223,16 @@ public class AddPet extends JFrame {
 							String dogsize=(dogsizeField.getText());
 							completed=PetiarySys.addDog(petid, name, breed, cal, illness, vet, weight,dogsize );
 						}
-						
-						if(completed) {
-							txtADisplay.setText("couln't added");
-						}
-						else {
-							txtADisplay.setText("added");
-						}
-						petid++;
-						
 					}
+					
+					if(completed) {
+						txtADisplay.setText("The pet " + name + " is added!");
+					}
+					else {
+						txtADisplay.setText("The pet " + name + " already exists!");
+					}
+					fr.getComboBox().setModel(new DefaultComboBoxModel(PetiarySys.getPetIds()));
+					petid++;
 				}
 				
 				

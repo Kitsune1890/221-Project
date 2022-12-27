@@ -29,6 +29,7 @@ public class MainFrame extends JFrame {
 	private AddVac vac;
 	private AddPet addpet;
 	private AddVet addvet;
+	private JComboBox comboBox;
 
 	
 	ImageIcon cat = new ImageIcon("cat.jpeg");
@@ -36,6 +37,12 @@ public class MainFrame extends JFrame {
 	
 	private JLabel imageLbl;
     
+	public JComboBox getComboBox() {
+		return comboBox;
+	}
+
+
+
 	/**
 	 * Create the frame.
 	 */
@@ -68,7 +75,7 @@ public class MainFrame extends JFrame {
 		imageLbl.setBounds(613, 11, 68, 73);
 		contentPane.add(imageLbl);
 		
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(comboBox.getSelectedItem().equals("cat"))
