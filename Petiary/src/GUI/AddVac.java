@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import hasA.Vaccination;
 import mainAndSys.PetiarySys;
 
 import javax.swing.JLabel;
@@ -17,6 +18,7 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
@@ -70,7 +72,14 @@ public class AddVac extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					Calendar calendar = PetiarySys.stringtoCalendar(date_tf.getText());
-					System.out.println(calendar.getTime());
+					if(PetiarySys.searchPet(getName()).getVac().size() == 0) {
+						ArrayList<Vaccination> temp = PetiarySys.getVacTemplate();
+						temp.get(getVacTemplateIndex(comboBox.getSelectedItem());
+						
+					}
+					
+					
+					
 				} catch (ParseException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
