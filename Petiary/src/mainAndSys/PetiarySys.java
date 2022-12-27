@@ -171,7 +171,7 @@ public class PetiarySys {
 		return false;
 	}
 	
-	public String[] getVetnames()
+	public static String[] getVetnames()
 	{
 		HashSet<Vet> vetset=PetiarySys.getVets();
 		String[] names=new String[vetset.size()];
@@ -184,7 +184,7 @@ public class PetiarySys {
 		return names;
 	}
 	
-	public String[] getVacnames()
+	public static String[] getVacnames()
 	{
 		HashSet<Vet> vetset=PetiarySys.getVets();
 		String[] names=new String[vetset.size()];

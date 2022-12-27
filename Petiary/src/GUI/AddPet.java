@@ -103,7 +103,7 @@ public class AddPet extends JFrame {
 		
 		JComboBox cbVetList = new JComboBox();
 		String[] arr=new String[20];
-		cbVetList.setModel(new DefaultComboBoxModel(getnames()));
+		cbVetList.setModel(new DefaultComboBoxModel(PetiarySys.getVetnames()));
 		
 		
 		cbVetList.setBounds(125, 186, 129, 22);
