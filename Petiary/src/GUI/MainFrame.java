@@ -14,6 +14,7 @@ import javax.swing.JTextPane;
 import javax.swing.JList;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
@@ -87,7 +88,6 @@ public class MainFrame extends JFrame {
 				else {
 					String str = comboBox.getSelectedItem().toString();
 					txtArea.setText(PetiarySys.searchPet(str).toString());  
-					
 				}
 			}
 		});
@@ -99,6 +99,8 @@ public class MainFrame extends JFrame {
 		JButton btnAddPet = new JButton("Add / Remove Pet");
 		btnAddPet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JComboBox cb = addpet.getCbVetList();
+				cb.setModel(new DefaultComboBoxModel(PetiarySys.getVetnames()));
 				addpet.setVisible(true);
 				dispose();
 			}

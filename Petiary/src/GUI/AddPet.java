@@ -33,11 +33,16 @@ public class AddPet extends JFrame {
 	private JTextField illnessField;
 	private JTextField petIdField;
 	private final ButtonGroup catOrDog = new ButtonGroup();
+	private JComboBox cbVetList;
 	
 	private static int petid=123;
 	private JTextField dogsizeField;
-	
-	
+
+	public JComboBox getCbVetList() {
+		return cbVetList;
+	}
+
+
 
 
 	/**
@@ -101,11 +106,7 @@ public class AddPet extends JFrame {
 		illnessField.setColumns(10);
 		contentPane.add(illnessField);
 		
-		JComboBox cbVetList = new JComboBox();
-		String[] arr=new String[20];
-		cbVetList.setModel(new DefaultComboBoxModel(PetiarySys.getVetnames()));
-		
-		
+		cbVetList = new JComboBox();
 		cbVetList.setBounds(125, 186, 129, 22);
 		contentPane.add(cbVetList);
 		
