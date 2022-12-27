@@ -28,6 +28,7 @@ public class PetiarySys {
 	
 	public static boolean addCat(int id, String name, String breed, Calendar bDate, String illness, Vet vet, double weight) {
 		Pet p = new Cat(id, name, breed, bDate, illness, vet, weight);
+		//p.calcNextCheckup();
 		if(pets.add(p)) {
 			return true;
 		}
@@ -65,7 +66,9 @@ public class PetiarySys {
 
 	public static boolean addDog(int id, String name, String breed, Calendar bDate, String illness, Vet vet, double weight, String dogSize) {
 		Pet p = new Dog(id, name, breed, bDate, illness, vet, weight, dogSize);
+		//p.calcNextCheckup();
 		if(pets.add(p)) {
+			
 			return true;
 		}
 		else {

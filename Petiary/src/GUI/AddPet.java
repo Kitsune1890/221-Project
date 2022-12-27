@@ -206,7 +206,8 @@ public class AddPet extends JFrame {
 					cal.set(Integer.parseInt(bdate[2]), Integer.parseInt(bdate[1]), Integer.parseInt(bdate[0]));
 					
 					String illness=illnessField.getText();
-					Vet vet=PetiarySys.searchVet(cbVetList.getName());
+					Vet vet=PetiarySys.searchVet(cbVetList.getSelectedItem().toString());
+					System.out.println(vet.toString());
 					
 					double weight=Double.parseDouble(weightField.getText());
 					
@@ -227,12 +228,12 @@ public class AddPet extends JFrame {
 					
 					if(completed) {
 						txtADisplay.setText("The pet " + name + " is added!");
-						PetiarySys.writeIntoFile();
+						
 					}
 					else {
 						txtADisplay.setText("The pet " + name + " already exists!");
 					}
-					fr.getComboBox().setModel(new DefaultComboBoxModel(PetiarySys.getPetIds()));
+					
 					petid++;
 				}
 				
@@ -261,6 +262,8 @@ public class AddPet extends JFrame {
 		
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				PetiarySys.writeIntoFile();
+				fr.getComboBox().setModel(new DefaultComboBoxModel(PetiarySys.getPetIds()));
 				fr.setVisible(true);
 				dispose();
 			}

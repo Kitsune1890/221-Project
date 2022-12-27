@@ -5,6 +5,7 @@ import java.util.Calendar;
 
 import GUI.MainFrame;
 import hasA.*;
+import isA.Pet;
 
 public class PetiaryMain {
 
@@ -16,6 +17,7 @@ public class PetiaryMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		MainFrame mf = new MainFrame();
 		mf.setVisible(true); //push plss
 	}
