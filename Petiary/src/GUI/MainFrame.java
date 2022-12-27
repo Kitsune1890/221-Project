@@ -41,7 +41,7 @@ public class MainFrame extends JFrame {
 	 */
 	public MainFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 814, 602);
+		setBounds(100, 100, 814, 578);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -67,12 +67,12 @@ public class MainFrame extends JFrame {
 		JTextPane txtPDisplay = new JTextPane();
 		scrollPane.setViewportView(txtPDisplay);
 		
-		JButton btnAddPet = new JButton("Add Pet");
-		btnAddPet.setBounds(181, 486, 140, 23);
+		JButton btnAddPet = new JButton("Add / Remove Pet");
+		btnAddPet.setBounds(115, 486, 206, 23);
 		contentPane.add(btnAddPet);
 		
-		JButton btnAddVet = new JButton("Add Vetenarian");
-		btnAddVet.setBounds(333, 486, 138, 23);
+		JButton btnAddVet = new JButton("Add / Remove Vetenarian");
+		btnAddVet.setBounds(333, 486, 198, 23);
 		contentPane.add(btnAddVet);
 		
 		JButton btnAddVac = new JButton("Add Vaccination");
@@ -80,15 +80,7 @@ public class MainFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnAddVac.setBounds(481, 486, 140, 23);
+		btnAddVac.setBounds(541, 486, 140, 23);
 		contentPane.add(btnAddVac);
-		
-		JButton btnRmvPet = new JButton("Remove Pet");
-		btnRmvPet.setBounds(233, 520, 140, 23);
-		contentPane.add(btnRmvPet);
-		
-		JButton btnRmvVet = new JButton("Remove Vetenatian");
-		btnRmvVet.setBounds(383, 520, 196, 23);
-		contentPane.add(btnRmvVet);
 	}
 }

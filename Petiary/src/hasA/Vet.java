@@ -2,6 +2,7 @@ package hasA;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Objects;
 
 public class Vet implements Serializable{
 
@@ -58,6 +59,24 @@ public class Vet implements Serializable{
 
 	public void setOpenDays(int index, boolean openDays) {
 		OpenDays[index] = openDays;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(name);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Vet other = (Vet) obj;
+		return Objects.equals(name, other.name);
 	}
 
 
