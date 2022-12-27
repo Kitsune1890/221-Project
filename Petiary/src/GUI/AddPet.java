@@ -15,12 +15,14 @@ import javax.swing.JTextArea;
 public class AddPet extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField nameField;
+	private JTextField breedField;
+	private JTextField bdateField;
+	private JTextField weightField;
+	private JTextField illnessField;
+	private JTextField petIdField;
+	
+	
 
 	/**
 	 * Create the frame.
@@ -58,30 +60,30 @@ public class AddPet extends JFrame {
 		lblNewLabel_5.setBounds(22, 147, 93, 14);
 		contentPane.add(lblNewLabel_5);
 		
-		textField = new JTextField();
-		textField.setBounds(125, 21, 129, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		nameField = new JTextField();
+		nameField.setBounds(125, 21, 129, 20);
+		contentPane.add(nameField);
+		nameField.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(125, 46, 129, 20);
-		textField_1.setColumns(10);
-		contentPane.add(textField_1);
+		breedField = new JTextField();
+		breedField.setBounds(125, 46, 129, 20);
+		breedField.setColumns(10);
+		contentPane.add(breedField);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(125, 71, 129, 20);
-		textField_2.setColumns(10);
-		contentPane.add(textField_2);
+		bdateField = new JTextField();
+		bdateField.setBounds(125, 71, 129, 20);
+		bdateField.setColumns(10);
+		contentPane.add(bdateField);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(125, 96, 129, 20);
-		textField_3.setColumns(10);
-		contentPane.add(textField_3);
+		weightField = new JTextField();
+		weightField.setBounds(125, 96, 129, 20);
+		weightField.setColumns(10);
+		contentPane.add(weightField);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(125, 121, 129, 20);
-		textField_4.setColumns(10);
-		contentPane.add(textField_4);
+		illnessField = new JTextField();
+		illnessField.setBounds(125, 121, 129, 20);
+		illnessField.setColumns(10);
+		contentPane.add(illnessField);
 		
 		JComboBox cbVetList = new JComboBox();
 		cbVetList.setBounds(125, 147, 129, 22);
@@ -95,10 +97,10 @@ public class AddPet extends JFrame {
 		btnAddPet.setBounds(99, 180, 89, 23);
 		contentPane.add(btnAddPet);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(171, 224, 36, 20);
-		contentPane.add(textField_5);
-		textField_5.setColumns(10);
+		petIdField = new JTextField();
+		petIdField.setBounds(171, 224, 36, 20);
+		contentPane.add(petIdField);
+		petIdField.setColumns(10);
 		
 		JButton btnSearchPet = new JButton("Search");
 		btnSearchPet.setBounds(96, 255, 108, 23);
