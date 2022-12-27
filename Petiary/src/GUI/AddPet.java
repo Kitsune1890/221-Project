@@ -192,14 +192,14 @@ public class AddPet extends JFrame {
 		btnAddPet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//int id, String name, String breed, Calendar bDate, String illness, Vet vet, double weight,
-				if(nameField.getText().isBlank() ||breedField.getText().isBlank()|| bdateField.getText().isBlank() || illnessField.getText().isBlank() || weightField.getText().isBlank()) {
+				if(nameField.getText().isBlank() ||breedField.getText().isBlank()|| bdateField.getText().isBlank() || weightField.getText().isBlank()) {
 					txtADisplay.setText("please fill all of the fields");
 				}
 				else {
 					String name=nameField.getText();
 					String breed=breedField.getText();
 					
-					String[] bdate=bdateField.getText().split(".");
+					String[] bdate=bdateField.getText().split("/");
 					
 					Calendar cal = Calendar.getInstance();
 					cal.set(Integer.parseInt(bdate[2]), Integer.parseInt(bdate[1]), Integer.parseInt(bdate[0]));
