@@ -22,6 +22,7 @@ public class MainFrame extends JFrame {
 	private JPanel contentPane;
 	private AddVac vac;
 	private AddPet addpet;
+	private AddVet addvet;
 
 	/**
 	 * Create the frame.
@@ -32,6 +33,9 @@ public class MainFrame extends JFrame {
 		
 		addpet=new AddPet(this);
 		addpet.setVisible(false);
+		
+		addvet=new AddVet(this);
+		addvet.setVisible(false);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 814, 578);
@@ -73,7 +77,8 @@ public class MainFrame extends JFrame {
 		JButton btnAddVet = new JButton("Add / Remove Veterinary");
 		btnAddVet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				addvet.setVisible(true);
+				dispose();
 			}
 		});
 		btnAddVet.setBounds(333, 486, 198, 23);

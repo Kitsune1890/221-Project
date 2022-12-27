@@ -11,6 +11,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AddVet extends JFrame {
 
@@ -19,11 +21,14 @@ public class AddVet extends JFrame {
 	private JTextField txtAddress;
 	private JTextField txtPhone;
 	private JTextField txtSearchName;
+	private MainFrame mainframe=null;
 
 	/**
 	 * Create the frame.
 	 */
-	public AddVet() {
+	public AddVet(JFrame ma) {
+		mainframe=(MainFrame)ma;
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 558, 369);
 		contentPane = new JPanel();
@@ -113,6 +118,12 @@ public class AddVet extends JFrame {
 		contentPane.add(btnDeleteVet);
 		
 		JButton btnClose = new JButton("Close");
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mainframe.setVisible(true);
+				dispose();
+			}
+		});
 		btnClose.setBounds(67, 289, 89, 23);
 		contentPane.add(btnClose);
 		
