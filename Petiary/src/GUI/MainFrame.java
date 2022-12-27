@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.JTextComponent;
+
+import mainAndSys.PetiarySys;
+
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextPane;
 import javax.swing.JList;
@@ -79,7 +82,13 @@ public class MainFrame extends JFrame {
 		JButton btnShow = new JButton("Show");
 		btnShow.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				txtArea.setText(comboBox.getSelectedItem().toString());  
+				if(comboBox.getSelectedItem() == null)
+					txtArea.setText("Please choose a pet.");
+				else {
+					String str = comboBox.getSelectedItem().toString();
+					txtArea.setText(PetiarySys.searchPet(str).toString());  
+					
+				}
 			}
 		});
 		btnShow.setBounds(318, 69, 115, 23);
