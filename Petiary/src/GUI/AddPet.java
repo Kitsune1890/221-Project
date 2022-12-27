@@ -199,7 +199,7 @@ public class AddPet extends JFrame {
 					String name=nameField.getText();
 					String breed=breedField.getText();
 					
-					String[] bdate=bdateField.getText().split("\\.");
+					String[] bdate=bdateField.getText().split(".");
 					
 					Calendar cal = Calendar.getInstance();
 					cal.set(Integer.parseInt(bdate[2]), Integer.parseInt(bdate[1]), Integer.parseInt(bdate[0]));
