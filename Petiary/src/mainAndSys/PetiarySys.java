@@ -48,7 +48,14 @@ public class PetiarySys {
 		return vacTemplate;
 	}
 
-
+	public static int getTemplateVacIndex(String name) {
+		for (int i = 0; i < vacTemplate.size(); i++) {
+			if(vacTemplate.get(i).getName().equals(name)) {
+				return i;
+			}
+		}
+		return -1;
+	}
 
 	public static String getTemplateVacSave() {
 		return templateVacSave;
@@ -184,17 +191,27 @@ public class PetiarySys {
 		return names;
 	}
 	
-	public static String[] getVacnames()
+	public static String[] getPetIds()
 	{
-		HashSet<Vet> vetset=PetiarySys.getVets();
-		String[] names=new String[vetset.size()];
-		int n=0;
-		for(Vet v : vetset) 
-		{
-			names[n]= v.getName();
-			n++;
+		HashSet<Pet> petSet = PetiarySys.getPets();
+		String[] ids = new String[petSet.size()];
+		int i = 0;
+		for(Pet p : petSet) {
+			ids[i] = p.getId();
+			i++;
 		}
-		return names;
+		
+		return ids;
+	}
+	
+	public static String[] getVacNames(Pet obj) {
+		String[] str = new String[5];
+		int i = 0;
+		for(Vaccination vac : obj.getVac()) {
+			str[i] = vac.getName();
+			i++;
+		}
+		return (str);
 	}
 	
 	public static boolean readFromFile() throws ClassNotFoundException {
@@ -288,13 +305,4 @@ public class PetiarySys {
 
 	}
 	
-	public static String[] getVacNames(Pet obj) {
-		String[] str = new String[5];
-		int i = 0;
-		for(Vaccination vac : obj.getVac()) {
-			str[i] = vac.getName();
-			i++;
-		}
-		return (str);
-	}
 }
