@@ -269,5 +269,6 @@ public class PetiarySys {
 			str[i] = vac.getName();
 			i++;
 		}
+		return (str);
 	}
 }
