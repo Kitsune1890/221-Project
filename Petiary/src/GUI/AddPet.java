@@ -36,7 +36,19 @@ public class AddPet extends JFrame {
 	private static int petid=123;
 	
 	
-	
+	public String[] getnames()
+	{
+		HashSet<Vet> vetset=PetiarySys.getVets();
+		String[] names=new String[vetset.size()];
+		int n=0;
+		for(Vet v : vetset) 
+		{
+			names[n]= v.getName();
+			n++;
+		}
+		
+		return names;
+	}
 
 	/**
 	 * Create the frame.
@@ -101,8 +113,7 @@ public class AddPet extends JFrame {
 		
 		JComboBox cbVetList = new JComboBox();
 		String[] arr=new String[20];
-		arr[0]="asd";arr[1]="bcs";
-		cbVetList.setModel(new DefaultComboBoxModel(arr));
+		cbVetList.setModel(new DefaultComboBoxModel(getnames()));
 		
 		
 		cbVetList.setBounds(125, 186, 129, 22);
@@ -158,20 +169,7 @@ public class AddPet extends JFrame {
 		lblNewLabel_7.setBounds(23, 28, 92, 13);
 		contentPane.add(lblNewLabel_7);
 		
-		cbVetList.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				HashSet<Vet> vetset=PetiarySys.getVets();
-				String[] names=new String[20];
-				int n=0;
-				for(Vet v : vetset) {
-					names[n]= v.getName();
-					n++;
-				}
-				names[0]="ahmet";
-				names[1]="mehmet";
-				//cbVetList.setModel(new DefaultComboBoxModel(names));
-			}
-		});
+	
 		
 		
 		btnAddPet.addActionListener(new ActionListener() {
