@@ -11,6 +11,8 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AddPet extends JFrame {
 
@@ -22,12 +24,16 @@ public class AddPet extends JFrame {
 	private JTextField illnessField;
 	private JTextField petIdField;
 	
+	private MainFrame frame=null;
+	
 	
 
 	/**
 	 * Create the frame.
 	 */
-	public AddPet() {
+	public AddPet(JFrame fr) {
+		frame=(MainFrame)fr;
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 558, 369);
 		contentPane = new JPanel();
@@ -94,6 +100,7 @@ public class AddPet extends JFrame {
 		contentPane.add(lblNewLabel_6);
 		
 		JButton btnAddPet = new JButton("Add");
+		
 		btnAddPet.setBounds(99, 180, 89, 23);
 		contentPane.add(btnAddPet);
 		
@@ -103,11 +110,13 @@ public class AddPet extends JFrame {
 		petIdField.setColumns(10);
 		
 		JButton btnSearchPet = new JButton("Search");
-		btnSearchPet.setBounds(96, 255, 108, 23);
+		
+		btnSearchPet.setBounds(35, 254, 108, 23);
 		contentPane.add(btnSearchPet);
 		
 		JButton btnDeletePet = new JButton("Delete Pet");
-		btnDeletePet.setBounds(96, 289, 108, 23);
+		
+		btnDeletePet.setBounds(146, 254, 108, 23);
 		contentPane.add(btnDeletePet);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -116,5 +125,32 @@ public class AddPet extends JFrame {
 		
 		JTextArea txtADisplay = new JTextArea();
 		scrollPane.setViewportView(txtADisplay);
+		
+		JButton btnClose = new JButton("Close");
+		
+		btnClose.setBounds(103, 287, 85, 21);
+		contentPane.add(btnClose);
+		
+		btnAddPet.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		btnSearchPet.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		btnDeletePet.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(true);
+				dispose();
+			}
+		});
 	}
 }
