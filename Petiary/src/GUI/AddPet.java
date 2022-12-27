@@ -193,41 +193,60 @@ public class AddPet extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//int id, String name, String breed, Calendar bDate, String illness, Vet vet, double weight,
 				if(nameField.getText().isBlank() ||breedField.getText().isBlank()|| bdateField.getText().isBlank() || illnessField.getText().isBlank() || weightField.getText().isBlank()) {
-					
-				}
-				String name=nameField.getText();
-				String breed=breedField.getText();
-				
-				String[] bdate=bdateField.getText().split("\\.");
-				
-				Calendar cal = Calendar.getInstance();
-				cal.set(Integer.parseInt(bdate[2]), Integer.parseInt(bdate[1]), Integer.parseInt(bdate[0]));
-				
-				String illness=illnessField.getText();
-				Vet vet=PetiarySys.searchVet(cbVetList.getName());
-				
-				double weight=Double.parseDouble(weightField.getText());
-				
-				if(cat.isSelected()) {
-					PetiarySys.addCat(petid, name, breed, cal, illness, vet, weight);
-					
+					txtADisplay.setText("please fill all of the fields");
 				}
 				else {
-					String dogsize=(dogsizeField.getText());
-					PetiarySys.addDog(petid, name, breed, cal, illness, vet, weight,dogsize );
+					String name=nameField.getText();
+					String breed=breedField.getText();
+					
+					String[] bdate=bdateField.getText().split("\\.");
+					
+					Calendar cal = Calendar.getInstance();
+					cal.set(Integer.parseInt(bdate[2]), Integer.parseInt(bdate[1]), Integer.parseInt(bdate[0]));
+					
+					String illness=illnessField.getText();
+					Vet vet=PetiarySys.searchVet(cbVetList.getName());
+					
+					double weight=Double.parseDouble(weightField.getText());
+					
+					if(cat.isSelected()) {
+						PetiarySys.addCat(petid, name, breed, cal, illness, vet, weight);
+						
+					}
+					else
+					{
+						if(dogsizeField.getText().isBlank()) {
+							txtADisplay.setText("please fill all of the fields");
+						}
+						else {
+							String dogsize=(dogsizeField.getText());
+							PetiarySys.addDog(petid, name, breed, cal, illness, vet, weight,dogsize );
+						}
+						petid++;
+						
+					}
 				}
+				
 				
 			}
 		});
 		
 		btnSearchPet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				txtADisplay.setText(PetiarySys.searchPet(petIdField.getText()).toString());
 			}
 		});
 		
 		btnDeletePet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				boolean success=PetiarySys.removePet(petIdField.getText());
+				if(success) {
+					txtADisplay.setText("successfully removed");
+				}
+				else {
+					txtADisplay.setText("couldn't removed");
+				}
+				
 			}
 		});
 		
