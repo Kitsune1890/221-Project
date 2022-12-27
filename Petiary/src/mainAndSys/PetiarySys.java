@@ -67,8 +67,8 @@ public class PetiarySys {
 	}
 	
 	public static boolean addVaccination(Pet pet, int vacId, Calendar date) {
-		for (int i = 0; i < pet.getArr().size(); i++) {
-			Vaccination v = pet.getArr().get(i);
+		for (int i = 0; i < pet.getVac().size(); i++) {
+			Vaccination v = pet.getVac().get(i);
 			if(v.getId() == vacId) {
 				v.addVacDate(date);
 				return true;
@@ -78,7 +78,7 @@ public class PetiarySys {
 		for (int i = 0; i < vacTemplate.size(); i++) {
 			if(vacTemplate.get(i).getId() == vacId) {
 				Vaccination v = vacTemplate.get(i);
-				pet.getArr().add(v);
+				pet.getVac().add(v);
 				return true;
 			}
 		}
@@ -116,7 +116,7 @@ public class PetiarySys {
 
 	public static String displayVac(Pet pet) {
 		String str = "";
-		for(Vaccination temp : pet.getArr()) {
+		for(Vaccination temp : pet.getVac()) {
 			str += temp.toString();
 		}
 		return str;

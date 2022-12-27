@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
@@ -34,6 +35,7 @@ public class AddPet extends JFrame {
 	private final ButtonGroup catOrDog = new ButtonGroup();
 	
 	private static int petid=123;
+	private JTextField dogsizeField;
 	
 	
 	public String[] getnames()
@@ -46,7 +48,6 @@ public class AddPet extends JFrame {
 			names[n]= v.getName();
 			n++;
 		}
-		
 		return names;
 	}
 
@@ -55,7 +56,7 @@ public class AddPet extends JFrame {
 	 */
 	public AddPet(MainFrame fr) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 561, 402);
+		setBounds(100, 100, 561, 431);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -120,27 +121,27 @@ public class AddPet extends JFrame {
 		contentPane.add(cbVetList);
 		
 		JLabel lblNewLabel_6 = new JLabel("Id to search:");
-		lblNewLabel_6.setBounds(72, 271, 78, 20);
+		lblNewLabel_6.setBounds(73, 300, 78, 20);
 		contentPane.add(lblNewLabel_6);
 		
 		JButton btnAddPet = new JButton("Add");
 		
-		btnAddPet.setBounds(99, 219, 89, 23);
+		btnAddPet.setBounds(105, 257, 89, 23);
 		contentPane.add(btnAddPet);
 		
 		petIdField = new JTextField();
-		petIdField.setBounds(157, 271, 36, 20);
+		petIdField.setBounds(158, 300, 36, 20);
 		contentPane.add(petIdField);
 		petIdField.setColumns(10);
 		
 		JButton btnSearchPet = new JButton("Search");
 		
-		btnSearchPet.setBounds(21, 301, 108, 23);
+		btnSearchPet.setBounds(22, 330, 108, 23);
 		contentPane.add(btnSearchPet);
 		
 		JButton btnDeletePet = new JButton("Delete Pet");
 		
-		btnDeletePet.setBounds(132, 301, 108, 23);
+		btnDeletePet.setBounds(133, 330, 108, 23);
 		contentPane.add(btnDeletePet);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -152,15 +153,17 @@ public class AddPet extends JFrame {
 		
 		JButton btnClose = new JButton("Close");
 		
-		btnClose.setBounds(89, 334, 85, 21);
+		btnClose.setBounds(90, 363, 85, 21);
 		contentPane.add(btnClose);
 		
 		JRadioButton dog = new JRadioButton("dog");
+		
 		catOrDog.add(dog);
 		dog.setBounds(125, 24, 62, 21);
 		contentPane.add(dog);
 		
 		JRadioButton cat = new JRadioButton("cat");
+		
 		catOrDog.add(cat);
 		cat.setBounds(190, 24, 79, 21);
 		contentPane.add(cat);
@@ -169,17 +172,65 @@ public class AddPet extends JFrame {
 		lblNewLabel_7.setBounds(23, 28, 92, 13);
 		contentPane.add(lblNewLabel_7);
 		
-	
+		JLabel dogsizelabel = new JLabel("Dog size:  ");
+		dogsizelabel.setBounds(22, 221, 70, 13);
+		contentPane.add(dogsizelabel);
+		
+		
+		dogsizeField = new JTextField();
+		dogsizeField.setBounds(125, 218, 96, 19);
+		contentPane.add(dogsizeField);
+		dogsizeField.setColumns(10);
+		
+		dogsizelabel.setVisible(false);
+		dogsizeField.setVisible(false);
+		
+		dog.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dogsizelabel.setVisible(true);
+				dogsizeField.setVisible(true);
+			}
+		});
+		
+		cat.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dogsizelabel.setVisible(false);
+				dogsizeField.setVisible(false);
+			}
+		});
 		
 		
 		btnAddPet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//int id, String name, String breed, Calendar bDate, String illness, Vet vet, double weight,
+				String name=nameField.getText();
+				String breed=breedField.getText();
+				
+				String[] bdate=bdateField.getText().split("\\.");
+				
+				Calendar cal = Calendar.getInstance();
+				cal.set(Integer.parseInt(bdate[2]), Integer.parseInt(bdate[1]), Integer.parseInt(bdate[0]));
+				
+				String illness=illnessField.getText();
+				Vet vet=PetiarySys.searchVet(cbVetList.getName());
+				
+				double weight=Double.parseDouble(weightField.getText());
+				
+				if(cat.isSelected()) {
+					PetiarySys.addCat(petid, name, breed, cal, illness, vet, weight);
+					
+				}
+				else {
+					String dogsize=(dogsizeField.getText());
+					PetiarySys.addDog(petid, name, breed, cal, illness, vet, weight,dogsize );
+				}
 				
 			}
 		});
 		
 		btnSearchPet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		
