@@ -18,6 +18,8 @@ public class AddVac extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	
+	private MainFrame frame=null;
 
 	/**
 	 * Launch the application.
@@ -77,6 +79,12 @@ public class AddVac extends JFrame {
 		scrollPane.setViewportView(textArea);
 		
 		JButton btnClose = new JButton("Close");
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mf.setVisible(true);
+				dispose();
+			}
+		});
 		btnClose.setBounds(108, 239, 89, 23);
 		contentPane.add(btnClose);
 	}
