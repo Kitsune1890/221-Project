@@ -1,4 +1,4 @@
-package mainAndSys;
+spopackage mainAndSys;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
