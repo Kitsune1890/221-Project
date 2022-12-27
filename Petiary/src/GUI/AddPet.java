@@ -38,18 +38,7 @@ public class AddPet extends JFrame {
 	private JTextField dogsizeField;
 	
 	
-	public String[] getnames()
-	{
-		HashSet<Vet> vetset=PetiarySys.getVets();
-		String[] names=new String[vetset.size()];
-		int n=0;
-		for(Vet v : vetset) 
-		{
-			names[n]= v.getName();
-			n++;
-		}
-		return names;
-	}
+
 
 	/**
 	 * Create the frame.
@@ -114,7 +103,7 @@ public class AddPet extends JFrame {
 		
 		JComboBox cbVetList = new JComboBox();
 		String[] arr=new String[20];
-		cbVetList.setModel(new DefaultComboBoxModel(getnames()));
+		cbVetList.setModel(new DefaultComboBoxModel(PetiarySys.getVetnames()));
 		
 		
 		cbVetList.setBounds(125, 186, 129, 22);

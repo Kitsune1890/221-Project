@@ -171,6 +171,32 @@ public class PetiarySys {
 		return false;
 	}
 	
+	public static String[] getVetnames()
+	{
+		HashSet<Vet> vetset=PetiarySys.getVets();
+		String[] names=new String[vetset.size()];
+		int n=0;
+		for(Vet v : vetset) 
+		{
+			names[n]= v.getName();
+			n++;
+		}
+		return names;
+	}
+	
+	public static String[] getVacnames()
+	{
+		HashSet<Vet> vetset=PetiarySys.getVets();
+		String[] names=new String[vetset.size()];
+		int n=0;
+		for(Vet v : vetset) 
+		{
+			names[n]= v.getName();
+			n++;
+		}
+		return names;
+	}
+	
 	public static boolean readFromFile() throws ClassNotFoundException {
 		try {
 			FileInputStream pf = new FileInputStream(PetSave);
