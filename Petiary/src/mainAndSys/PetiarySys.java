@@ -197,7 +197,7 @@ public class PetiarySys {
 		String[] ids = new String[petSet.size()];
 		int i = 0;
 		for(Pet p : petSet) {
-			ids[i] = p.getId();
+			ids[i] = Integer.toString(p.getId());
 			i++;
 		}
 		
