@@ -5,6 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import hasA.Vet;
+import mainAndSys.PetiarySys;
+
 import javax.swing.JLabel;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
@@ -37,6 +41,13 @@ public class AddVet extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(266, 37, 251, 275);
+		contentPane.add(scrollPane);
+		
+		JTextArea txtADisplay = new JTextArea();
+		scrollPane.setViewportView(txtADisplay);
+		
 		JLabel lblNewLabel = new JLabel("Name:");
 		lblNewLabel.setBounds(25, 25, 64, 14);
 		contentPane.add(lblNewLabel);
@@ -54,31 +65,31 @@ public class AddVet extends JFrame {
 		contentPane.add(lblNewLabel_3);
 		
 		JCheckBox chkBoxTUE = new JCheckBox("Tue");
-		chkBoxTUE.setBounds(16, 118, 48, 23);
+		chkBoxTUE.setBounds(82, 119, 56, 23);
 		contentPane.add(chkBoxTUE);
 		
 		JCheckBox chkBoxMON = new JCheckBox("Mon");
-		chkBoxMON.setBounds(67, 118, 48, 23);
+		chkBoxMON.setBounds(16, 119, 64, 23);
 		contentPane.add(chkBoxMON);
 		
 		JCheckBox chkBoxWED = new JCheckBox("Wed");
-		chkBoxWED.setBounds(122, 118, 48, 23);
+		chkBoxWED.setBounds(140, 118, 58, 23);
 		contentPane.add(chkBoxWED);
 		
 		JCheckBox chkBoxTHU = new JCheckBox("Thu");
-		chkBoxTHU.setBounds(175, 118, 48, 23);
+		chkBoxTHU.setBounds(200, 119, 60, 23);
 		contentPane.add(chkBoxTHU);
 		
 		JCheckBox chkBoxFRI = new JCheckBox("Fri");
-		chkBoxFRI.setBounds(35, 151, 48, 23);
+		chkBoxFRI.setBounds(50, 145, 48, 23);
 		contentPane.add(chkBoxFRI);
 		
 		JCheckBox chkBoxSAT = new JCheckBox("Sat");
-		chkBoxSAT.setBounds(87, 151, 48, 23);
+		chkBoxSAT.setBounds(102, 145, 48, 23);
 		contentPane.add(chkBoxSAT);
 		
 		JCheckBox chkBoxSUN = new JCheckBox("Sun");
-		chkBoxSUN.setBounds(150, 151, 48, 23);
+		chkBoxSUN.setBounds(165, 145, 48, 23);
 		contentPane.add(chkBoxSUN);
 		
 		txtName = new JTextField();
@@ -97,6 +108,32 @@ public class AddVet extends JFrame {
 		txtPhone.setColumns(10);
 		
 		JButton btnAddVet = new JButton("Add");
+		btnAddVet.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				boolean boolArr[] = {chkBoxMON.isSelected(), chkBoxTUE.isSelected(), chkBoxWED.isSelected(), chkBoxTHU.isSelected(), chkBoxFRI.isSelected(), chkBoxSAT.isSelected(), chkBoxSUN.isSelected()};
+				//txtADisplay.setText(Boolean.toString(boolArr[6]));
+				if(txtName.getText() == "" && txtAddress.getText() == "" && txtPhone.getText() == "") {
+					txtADisplay.setText("Please do not leave empty fields!");
+				}
+				else if(PetiarySys.addVet(txtName.getText(), txtAddress.getText(), txtPhone.getText(), boolArr)) {
+					txtADisplay.setText("The veterinary " + txtName.getText() + " is added!");
+					txtName.setText("");
+					txtAddress.setText("");
+					txtPhone.setText("");
+					chkBoxMON.setSelected(false);
+					chkBoxTUE.setSelected(false);
+					chkBoxWED.setSelected(false);
+					chkBoxTHU.setSelected(false);
+					chkBoxFRI.setSelected(false);
+					chkBoxSAT.setSelected(false);
+					chkBoxSUN.setSelected(false);
+				}
+				else {
+					txtADisplay.setText("The veterinary " + txtName.getText() + " already exists!");
+				}
+				
+			}
+		});
 		btnAddVet.setBounds(67, 181, 89, 23);
 		contentPane.add(btnAddVet);
 		
@@ -110,10 +147,43 @@ public class AddVet extends JFrame {
 		txtSearchName.setColumns(10);
 		
 		JButton btnSearchPet = new JButton("Search");
+		btnSearchPet.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(txtSearchName.getText() == "") {
+					txtADisplay.setText("Please enter a name to search!");
+				}
+				else {
+					Vet v = PetiarySys.searchVet(txtSearchName.getText());
+					if(v != null) {
+						txtADisplay.setText("Here is the veterinary\n\n" + v.toString());
+					}
+					else {
+						txtADisplay.setText("The veterinary by the name " + txtSearchName.getText() + " does not exist!");
+					}
+				}
+			}
+		});
 		btnSearchPet.setBounds(25, 255, 89, 23);
 		contentPane.add(btnSearchPet);
 		
 		JButton btnDeleteVet = new JButton("Delete");
+		btnDeleteVet.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(txtSearchName.getText() == "") {
+					txtADisplay.setText("Please enter a name to search!");
+				}
+				else {
+					Vet v = PetiarySys.searchVet(txtSearchName.getText());
+					if(v != null) {
+						txtADisplay.setText("The veterinary " + v.getName() + " is deleted!");
+						PetiarySys.removeVet(v.getName());
+					}
+					else {
+						txtADisplay.setText("The veterinary by the name " + txtSearchName.getText() + " does not exist!");
+					}
+				}
+			}
+		});
 		btnDeleteVet.setBounds(122, 255, 89, 23);
 		contentPane.add(btnDeleteVet);
 		
@@ -126,12 +196,5 @@ public class AddVet extends JFrame {
 		});
 		btnClose.setBounds(67, 289, 89, 23);
 		contentPane.add(btnClose);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(266, 37, 251, 275);
-		contentPane.add(scrollPane);
-		
-		JTextArea txtADisplay = new JTextArea();
-		scrollPane.setViewportView(txtADisplay);
 	}
 }

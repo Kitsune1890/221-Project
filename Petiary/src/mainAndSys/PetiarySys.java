@@ -151,10 +151,18 @@ public class PetiarySys {
 	}
 	
 	public static boolean removeVet(String name) {
+		boolean flag = true;
 		for(Vet temp: vets) {
 			if(temp.getName().equals(name)) {
-				vets.remove(temp);
-				return true;
+				for(Pet pets: pets) {
+					if(pets.getVet() == temp) {
+						flag = false;
+					}
+				}
+				if(flag) {
+					vets.remove(temp);
+					return true;
+				}
 			}
 		}
 		return false;
