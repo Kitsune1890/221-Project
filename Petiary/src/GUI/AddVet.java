@@ -5,6 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import hasA.Vet;
+import mainAndSys.PetiarySys;
+
 import javax.swing.JLabel;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
@@ -108,6 +112,26 @@ public class AddVet extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				boolean boolArr[] = {chkBoxMON.isSelected(), chkBoxTUE.isSelected(), chkBoxWED.isSelected(), chkBoxTHU.isSelected(), chkBoxFRI.isSelected(), chkBoxSAT.isSelected(), chkBoxSUN.isSelected()};
 				//txtADisplay.setText(Boolean.toString(boolArr[6]));
+				if(txtName.getText() == "" && txtAddress.getText() == "" && txtPhone.getText() == "") {
+					txtADisplay.setText("Please do not leave empty fields!");
+				}
+				else if(PetiarySys.addVet(txtName.getText(), txtAddress.getText(), txtPhone.getText(), boolArr)) {
+					txtADisplay.setText("The veterinary " + txtName.getText() + " is added!");
+					txtName.setText("");
+					txtAddress.setText("");
+					txtPhone.setText("");
+					chkBoxMON.setSelected(false);
+					chkBoxTUE.setSelected(false);
+					chkBoxWED.setSelected(false);
+					chkBoxTHU.setSelected(false);
+					chkBoxFRI.setSelected(false);
+					chkBoxSAT.setSelected(false);
+					chkBoxSUN.setSelected(false);
+				}
+				else {
+					txtADisplay.setText("The veterinary " + txtName.getText() + " already exists!");
+				}
+				
 			}
 		});
 		btnAddVet.setBounds(67, 181, 89, 23);
@@ -123,10 +147,43 @@ public class AddVet extends JFrame {
 		txtSearchName.setColumns(10);
 		
 		JButton btnSearchPet = new JButton("Search");
+		btnSearchPet.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(txtSearchName.getText() == "") {
+					txtADisplay.setText("Please enter a name to search!");
+				}
+				else {
+					Vet v = PetiarySys.searchVet(txtSearchName.getText());
+					if(v != null) {
+						txtADisplay.setText("Here is the veterinary\n\n" + v.toString());
+					}
+					else {
+						txtADisplay.setText("The veterinary by the name " + txtSearchName.getText() + " does not exist!");
+					}
+				}
+			}
+		});
 		btnSearchPet.setBounds(25, 255, 89, 23);
 		contentPane.add(btnSearchPet);
 		
 		JButton btnDeleteVet = new JButton("Delete");
+		btnDeleteVet.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(txtSearchName.getText() == "") {
+					txtADisplay.setText("Please enter a name to search!");
+				}
+				else {
+					Vet v = PetiarySys.searchVet(txtSearchName.getText());
+					if(v != null) {
+						txtADisplay.setText("The veterinary " + v.getName() + " is deleted!");
+						PetiarySys.removeVet(v.getName());
+					}
+					else {
+						txtADisplay.setText("The veterinary by the name " + txtSearchName.getText() + " does not exist!");
+					}
+				}
+			}
+		});
 		btnDeleteVet.setBounds(122, 255, 89, 23);
 		contentPane.add(btnDeleteVet);
 		
