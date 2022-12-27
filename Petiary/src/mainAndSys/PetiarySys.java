@@ -6,8 +6,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.TreeSet;
 
@@ -243,5 +246,28 @@ public class PetiarySys {
 		
 		
 		return true;
+	}
+	
+	public static Calendar stringtoCalendar(String str) throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
+		Date date = sdf.parse(str);
+        return dateToCalendar(date);
+	}
+	
+	private static Calendar dateToCalendar(Date date) {
+
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		return calendar;
+
+	}
+	
+	public static String[] getVacNames(Pet obj) {
+		String[] str = new String[5];
+		int i = 0;
+		for(Vaccination vac : obj.getVac()) {
+			str[i] = vac.getName();
+			i++;
+		}
 	}
 }

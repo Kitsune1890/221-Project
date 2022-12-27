@@ -5,11 +5,19 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import mainAndSys.PetiarySys;
+
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
@@ -17,10 +25,8 @@ import javax.swing.JScrollPane;
 public class AddVac extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField date_tf;
 	
-	private MainFrame frame=null;
-
 	/**
 	 * Launch the application.
 	 */
@@ -54,14 +60,22 @@ public class AddVac extends JFrame {
 		comboBox.setBounds(157, 80, 123, 22);
 		contentPane.add(comboBox);
 		
-		textField = new JTextField();
-		textField.setBounds(157, 115, 123, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		date_tf = new JTextField();
+		date_tf.setBounds(157, 115, 123, 20);
+		contentPane.add(date_tf);
+		date_tf.setColumns(10);
 		
 		JButton add_bt = new JButton("Add\r\n");
 		add_bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					Calendar calendar = PetiarySys.stringtoCalendar(date_tf.getText());
+					System.out.println(calendar.getTime());
+				} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 			}
 		});
 		add_bt.setBounds(108, 170, 89, 23);
