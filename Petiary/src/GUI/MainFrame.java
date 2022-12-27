@@ -20,27 +20,15 @@ import javax.swing.JTextArea;
 public class MainFrame extends JFrame {
 
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainFrame frame = new MainFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private AddVac vac;
 
 	/**
 	 * Create the frame.
 	 */
 	public MainFrame() {
+		vac = new AddVac(this);
+		vac.setVisible(false);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 814, 578);
 		contentPane = new JPanel();
@@ -73,12 +61,19 @@ public class MainFrame extends JFrame {
 		contentPane.add(btnAddPet);
 		
 		JButton btnAddVet = new JButton("Add / Remove Veterinary");
+		btnAddVet.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnAddVet.setBounds(333, 486, 198, 23);
 		contentPane.add(btnAddVet);
 		
 		JButton btnAddVac = new JButton("Add Vaccination");
 		btnAddVac.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				vac.setVisible(true);
 			}
 		});
 		btnAddVac.setBounds(541, 486, 140, 23);
