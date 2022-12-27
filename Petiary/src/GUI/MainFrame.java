@@ -15,6 +15,7 @@ import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 
 public class MainFrame extends JFrame {
 
@@ -64,14 +65,14 @@ public class MainFrame extends JFrame {
 		scrollPane.setBounds(87, 103, 626, 359);
 		contentPane.add(scrollPane);
 		
-		JTextPane txtPDisplay = new JTextPane();
-		scrollPane.setViewportView(txtPDisplay);
+		JTextArea txtADisplay = new JTextArea();
+		scrollPane.setViewportView(txtADisplay);
 		
 		JButton btnAddPet = new JButton("Add / Remove Pet");
 		btnAddPet.setBounds(115, 486, 206, 23);
 		contentPane.add(btnAddPet);
 		
-		JButton btnAddVet = new JButton("Add / Remove Vetenarian");
+		JButton btnAddVet = new JButton("Add / Remove Veterinary");
 		btnAddVet.setBounds(333, 486, 198, 23);
 		contentPane.add(btnAddVet);
 		
