@@ -31,9 +31,7 @@ public class AddPet extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AddPet(JFrame fr) {
-		frame=(MainFrame)fr;
-		
+	public AddPet(MainFrame fr) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 558, 369);
 		contentPane = new JPanel();
@@ -148,7 +146,7 @@ public class AddPet extends JFrame {
 		
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.setVisible(true);
+				fr.setVisible(true);
 				dispose();
 			}
 		});
