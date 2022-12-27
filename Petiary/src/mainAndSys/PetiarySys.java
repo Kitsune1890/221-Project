@@ -6,8 +6,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.TreeSet;
 
@@ -64,8 +67,8 @@ public class PetiarySys {
 	}
 	
 	public static boolean addVaccination(Pet pet, int vacId, Calendar date) {
-		for (int i = 0; i < pet.getArr().size(); i++) {
-			Vaccination v = pet.getArr().get(i);
+		for (int i = 0; i < pet.getVac().size(); i++) {
+			Vaccination v = pet.getVac().get(i);
 			if(v.getId() == vacId) {
 				v.addVacDate(date);
 				return true;
@@ -75,7 +78,7 @@ public class PetiarySys {
 		for (int i = 0; i < vacTemplate.size(); i++) {
 			if(vacTemplate.get(i).getId() == vacId) {
 				Vaccination v = vacTemplate.get(i);
-				pet.getArr().add(v);
+				pet.getVac().add(v);
 				return true;
 			}
 		}
@@ -113,7 +116,7 @@ public class PetiarySys {
 
 	public static String displayVac(Pet pet) {
 		String str = "";
-		for(Vaccination temp : pet.getArr()) {
+		for(Vaccination temp : pet.getVac()) {
 			str += temp.toString();
 		}
 		return str;
@@ -151,10 +154,18 @@ public class PetiarySys {
 	}
 	
 	public static boolean removeVet(String name) {
+		boolean flag = true;
 		for(Vet temp: vets) {
 			if(temp.getName().equals(name)) {
-				vets.remove(temp);
-				return true;
+				for(Pet pets: pets) {
+					if(pets.getVet() == temp) {
+						flag = false;
+					}
+				}
+				if(flag) {
+					vets.remove(temp);
+					return true;
+				}
 			}
 		}
 		return false;
@@ -235,5 +246,29 @@ public class PetiarySys {
 		
 		
 		return true;
+	}
+	
+	public static Calendar stringtoCalendar(String str) throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
+		Date date = sdf.parse(str);
+        return dateToCalendar(date);
+	}
+	
+	private static Calendar dateToCalendar(Date date) {
+
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		return calendar;
+
+	}
+	
+	public static String[] getVacNames(Pet obj) {
+		String[] str = new String[5];
+		int i = 0;
+		for(Vaccination vac : obj.getVac()) {
+			str[i] = vac.getName();
+			i++;
+		}
+		return (str);
 	}
 }
