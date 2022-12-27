@@ -112,7 +112,7 @@ public class AddVet extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				boolean boolArr[] = {chkBoxMON.isSelected(), chkBoxTUE.isSelected(), chkBoxWED.isSelected(), chkBoxTHU.isSelected(), chkBoxFRI.isSelected(), chkBoxSAT.isSelected(), chkBoxSUN.isSelected()};
 				//txtADisplay.setText(Boolean.toString(boolArr[6]));
-				if(txtName.getText() == "" && txtAddress.getText() == "" && txtPhone.getText() == "") {
+				if(txtName.getText() == "" || txtAddress.getText() == "" || txtPhone.getText() == "") {
 					txtADisplay.setText("Please do not leave empty fields!");
 				}
 				else if(PetiarySys.addVet(txtName.getText(), txtAddress.getText(), txtPhone.getText(), boolArr)) {
