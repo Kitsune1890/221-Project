@@ -59,13 +59,14 @@ public class AddVac extends JFrame {
 		
 		JButton add_bt = new JButton("Add\r\n");
 		add_bt.addActionListener(new ActionListener() {
-			
+			public void actionPerformed(ActionEvent e) {
+			}
 		});
-		add_bt.setBounds(59, 166, 89, 23);
+		add_bt.setBounds(108, 170, 89, 23);
 		contentPane.add(add_bt);
 		
 		JButton show_bt = new JButton("Show All");
-		show_bt.setBounds(59, 226, 89, 23);
+		show_bt.setBounds(108, 202, 89, 23);
 		contentPane.add(show_bt);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -74,5 +75,9 @@ public class AddVac extends JFrame {
 		
 		JTextArea textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
+		
+		JButton btnClose = new JButton("Close");
+		btnClose.setBounds(108, 239, 89, 23);
+		contentPane.add(btnClose);
 	}
 }
