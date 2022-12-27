@@ -192,6 +192,9 @@ public class AddPet extends JFrame {
 		btnAddPet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//int id, String name, String breed, Calendar bDate, String illness, Vet vet, double weight,
+				if(nameField.getText().isBlank() ||breedField.getText().isBlank()|| bdateField.getText().isBlank() || illnessField.getText().isBlank() || weightField.getText().isBlank()) {
+					
+				}
 				String name=nameField.getText();
 				String breed=breedField.getText();
 				
