@@ -112,11 +112,13 @@ public class AddVet extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				boolean boolArr[] = {chkBoxMON.isSelected(), chkBoxTUE.isSelected(), chkBoxWED.isSelected(), chkBoxTHU.isSelected(), chkBoxFRI.isSelected(), chkBoxSAT.isSelected(), chkBoxSUN.isSelected()};
 				//txtADisplay.setText(Boolean.toString(boolArr[6]));
-				if(txtName.getText() == "" || txtAddress.getText() == "" || txtPhone.getText() == "") {
+				
+				if(txtName.getText().equals("") || txtAddress.getText().equals("")|| txtPhone.getText().equals("")) {
 					txtADisplay.setText("Please do not leave empty fields!");
 				}
 				else if(PetiarySys.addVet(txtName.getText(), txtAddress.getText(), txtPhone.getText(), boolArr)) {
 					txtADisplay.setText("The veterinary " + txtName.getText() + " is added!");
+					PetiarySys.writeIntoFile();
 					txtName.setText("");
 					txtAddress.setText("");
 					txtPhone.setText("");
@@ -131,7 +133,7 @@ public class AddVet extends JFrame {
 				else {
 					txtADisplay.setText("The veterinary " + txtName.getText() + " already exists!");
 				}
-				
+		
 			}
 		});
 		btnAddVet.setBounds(67, 181, 89, 23);
@@ -149,7 +151,7 @@ public class AddVet extends JFrame {
 		JButton btnSearchPet = new JButton("Search");
 		btnSearchPet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(txtSearchName.getText() == "") {
+				if(txtSearchName.getText().equals("")) {
 					txtADisplay.setText("Please enter a name to search!");
 				}
 				else {
@@ -169,7 +171,7 @@ public class AddVet extends JFrame {
 		JButton btnDeleteVet = new JButton("Delete");
 		btnDeleteVet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(txtSearchName.getText() == "") {
+				if(txtSearchName.getText().equals("")) {
 					txtADisplay.setText("Please enter a name to search!");
 				}
 				else {
@@ -177,6 +179,7 @@ public class AddVet extends JFrame {
 					if(v != null) {
 						txtADisplay.setText("The veterinary " + v.getName() + " is deleted!");
 						PetiarySys.removeVet(v.getName());
+						PetiarySys.writeIntoFile();
 					}
 					else {
 						txtADisplay.setText("The veterinary by the name " + txtSearchName.getText() + " does not exist!");
