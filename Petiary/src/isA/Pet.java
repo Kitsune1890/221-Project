@@ -81,7 +81,7 @@ public abstract class Pet implements WeightCheck ,Serializable{
 		return bDate;
 	}
 
-	public ArrayList<Vaccination> getArr() {
+	public ArrayList<Vaccination> getVac() {
 		return arr;
 	}
 
