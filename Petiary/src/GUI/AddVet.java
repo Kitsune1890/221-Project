@@ -12,6 +12,7 @@ import mainAndSys.PetiarySys;
 import javax.swing.JLabel;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -179,7 +180,7 @@ public class AddVet extends JFrame {
 					if(v != null) {
 						txtADisplay.setText("The veterinary " + v.getName() + " is deleted!");
 						PetiarySys.removeVet(v.getName());
-						PetiarySys.writeIntoFile();
+
 					}
 					else {
 						txtADisplay.setText("The veterinary by the name " + txtSearchName.getText() + " does not exist!");
@@ -193,6 +194,8 @@ public class AddVet extends JFrame {
 		JButton btnClose = new JButton("Close");
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				PetiarySys.writeIntoFile();
+				mainframe.getComboBox().setModel(new DefaultComboBoxModel(PetiarySys.getPetIds()));
 				mainframe.setVisible(true);
 				dispose();
 			}

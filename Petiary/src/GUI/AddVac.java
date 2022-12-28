@@ -120,6 +120,7 @@ public class AddVac extends JFrame {
 		JButton btnClose = new JButton("Close");
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				PetiarySys.writeIntoFile();
 				mf.setVisible(true);
 				dispose();
 			}

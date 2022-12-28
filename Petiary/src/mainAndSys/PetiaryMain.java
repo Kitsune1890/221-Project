@@ -5,6 +5,7 @@ import java.util.Calendar;
 
 import GUI.MainFrame;
 import hasA.*;
+import isA.Pet;
 
 public class PetiaryMain {
 

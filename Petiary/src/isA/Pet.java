@@ -31,6 +31,7 @@ public abstract class Pet implements WeightCheck ,Serializable{
 		this.weight=weight;
 		this.vet = vet;
 		NumOfPets++;
+
 	}
 
 	public String getIllnes() {

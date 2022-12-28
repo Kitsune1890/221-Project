@@ -76,6 +76,7 @@ public class MainFrame extends JFrame {
 		contentPane.add(imageLbl);
 		
 		comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(PetiarySys.getPetIds()));//get pet info at the beginning
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(comboBox.getSelectedItem().equals("cat"))
