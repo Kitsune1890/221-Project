@@ -43,6 +43,8 @@ public class AddVac extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
+		JTextArea textArea = new JTextArea();
+		
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -70,19 +72,35 @@ public class AddVac extends JFrame {
 		JButton add_bt = new JButton("Add\r\n");
 		add_bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/*try {
-					Calendar calendar = PetiarySys.stringtoCalendar(date_tf.getText());
-					if(PetiarySys.searchPet(getName()).getVac().size() == 0) {
-						ArrayList<Vaccination> temp = PetiarySys.getVacTemplate();
-						temp.get(getVacTemplateIndex(comboBox.getSelectedItem());
-						
+				if(comboBox.getSelectedItem().equals("")) {
+					try {
+						Calendar calendar = PetiarySys.stringtoCalendar(date_tf.getText());
+						ArrayList<Vaccination> temp = (ArrayList<Vaccination>) PetiarySys.getVacTemplate().clone();
+						Vaccination vac;
+						if(PetiarySys.searchPet(getName()).getVac().size() == 0) {
+							vac = temp.get(PetiarySys.getVacTemplateIndex((String)comboBox.getSelectedItem()));
+							vac.addVacDate(calendar);
+							PetiarySys.searchPet(getName()).getVac().add(vac);
+						}else {
+							for(int i = 0; i < PetiarySys.searchPet(getName()).getVac().size(); i++) {
+								if(PetiarySys.getVacTemplateIndex((String)comboBox.getSelectedItem()) == temp.get(i).getId()) {
+									PetiarySys.searchPet(getName()).getVac().get(i).addVacDate(calendar);
+								}
+								else {
+									vac = temp.get(PetiarySys.getVacTemplateIndex((String)comboBox.getSelectedItem()));
+									vac.addVacDate(calendar);
+									PetiarySys.searchPet(getName()).getVac().add(vac);
+								}
+							}
+						}						
+					} catch (ParseException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
 					}
-					
-				} catch (ParseException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				}else {
+					textArea.setText("Please Enter A date");
 				}
-				*/
+					
 			}
 		});
 		add_bt.setBounds(108, 170, 89, 23);
@@ -96,7 +114,7 @@ public class AddVac extends JFrame {
 		scrollPane.setBounds(301, 36, 178, 226);
 		contentPane.add(scrollPane);
 		
-		JTextArea textArea = new JTextArea();
+		
 		scrollPane.setViewportView(textArea);
 		
 		JButton btnClose = new JButton("Close");
