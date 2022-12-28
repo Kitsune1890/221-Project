@@ -77,19 +77,22 @@ public class AddVac extends JFrame {
 						Calendar calendar = PetiarySys.stringtoCalendar(date_tf.getText());
 						ArrayList<Vaccination> temp = (ArrayList<Vaccination>) PetiarySys.getVacTemplate().clone();
 						Vaccination vac;
-						if(PetiarySys.searchPet(getName()).getVac().size() == 0) {
+						if(PetiarySys.searchPet((String) mf.getComboBox().getSelectedItem()).getVac().size() == 0) {
 							vac = temp.get(PetiarySys.getVacTemplateIndex((String)comboBox.getSelectedItem()));
 							vac.addVacDate(calendar);
-							PetiarySys.searchPet(getName()).getVac().add(vac);
+							PetiarySys.searchPet((String) mf.getComboBox().getSelectedItem()).getVac().add(vac);
+							textArea.setText("Vaccination record added");
 						}else {
-							for(int i = 0; i < PetiarySys.searchPet(getName()).getVac().size(); i++) {
+							for(int i = 0; i < PetiarySys.searchPet((String) mf.getComboBox().getSelectedItem()).getVac().size(); i++) {
 								if(PetiarySys.getVacTemplateIndex((String)comboBox.getSelectedItem()) == temp.get(i).getId()) {
-									PetiarySys.searchPet(getName()).getVac().get(i).addVacDate(calendar);
+									PetiarySys.searchPet((String) mf.getComboBox().getSelectedItem()).getVac().get(i).addVacDate(calendar);
+									textArea.setText("Vaccination record Updated");
 								}
 								else {
 									vac = temp.get(PetiarySys.getVacTemplateIndex((String)comboBox.getSelectedItem()));
 									vac.addVacDate(calendar);
-									PetiarySys.searchPet(getName()).getVac().add(vac);
+									PetiarySys.searchPet((String) mf.getComboBox().getSelectedItem()).getVac().add(vac);
+									textArea.setText("Vaccination record added");
 								}
 							}
 						}						
@@ -107,6 +110,15 @@ public class AddVac extends JFrame {
 		contentPane.add(add_bt);
 		
 		JButton show_bt = new JButton("Show All");
+		show_bt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(PetiarySys.searchPet((String) mf.getComboBox().getSelectedItem()).getVac().size() == 0) {
+					textArea.setText("There is no vaccination record");
+				}else {
+					textArea.setText(PetiarySys.displayVac(PetiarySys.searchPet((String) mf.getComboBox().getSelectedItem())));
+				}
+			}
+		});
 		show_bt.setBounds(108, 202, 89, 23);
 		contentPane.add(show_bt);
 		
