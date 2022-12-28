@@ -7,6 +7,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.JTextComponent;
 
+import isA.Cat;
+import isA.Dog;
+import isA.Pet;
 import mainAndSys.PetiarySys;
 
 import javax.swing.JFormattedTextField;
@@ -33,8 +36,8 @@ public class MainFrame extends JFrame {
 	private JComboBox comboBox;
 
 	
-	ImageIcon cat = new ImageIcon("cat.jpeg");
-	ImageIcon dog = new ImageIcon("dog.jpeg");
+	ImageIcon cat = new ImageIcon("img/cat2.jpeg");
+	ImageIcon dog = new ImageIcon("img/dog2.jpg");
 	
 	private JLabel imageLbl;
     
@@ -80,10 +83,16 @@ public class MainFrame extends JFrame {
 		comboBox.setModel(new DefaultComboBoxModel(PetiarySys.getPetIds()));//get pet info at the beginning
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(comboBox.getSelectedItem().equals("cat"))
+				String str = comboBox.getSelectedItem().toString();
+				Pet p=PetiarySys.searchPet(str); 
+				if(p instanceof Cat) {
 					imageLbl.setIcon(cat);
-				else
+				}	
+				else{
 					imageLbl.setIcon(dog);
+					System.out.println("dog");
+				}
+					
 			}
 		});
 		comboBox.setBounds(164, 27, 415, 31);
@@ -91,7 +100,7 @@ public class MainFrame extends JFrame {
 		
 		JButton btnShow = new JButton("Show");
 		btnShow.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) { 
 				if(comboBox.getSelectedItem() == null)
 					txtArea.setText("Please choose a pet.");
 				else {
