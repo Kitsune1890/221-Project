@@ -3,6 +3,7 @@ package mainAndSys;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.TreeSet;
 
 import hasA.Vaccination;
@@ -27,11 +29,14 @@ public class PetiarySys {
 	private static ArrayList<Vaccination> vacTemplate = new ArrayList<Vaccination>();
 	private final static String PetSave = "petSave.bin", VetSave = "vetSave.bin", templateVacSave = "template.bin";
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
+	 static int petid=123;
 	
-	public static boolean addCat(int id, String name, String breed, Calendar bDate, String illness, Vet vet, double weight) {
+	public static boolean addCat(int id,String name, String breed, Calendar bDate, String illness, Vet vet, double weight) {
+
 		Pet p = new Cat(id, name, breed, bDate, illness, vet, weight);
 		//p.calcNextCheckup();
 		if(pets.add(p)) {
+			
 			return true;
 		}
 		else {
@@ -66,7 +71,8 @@ public class PetiarySys {
 
 
 
-	public static boolean addDog(int id, String name, String breed, Calendar bDate, String illness, Vet vet, double weight, String dogSize) {
+	public static boolean addDog(int id,String name, String breed, Calendar bDate, String illness, Vet vet, double weight, String dogSize) {
+
 		Pet p = new Dog(id, name, breed, bDate, illness, vet, weight, dogSize);
 		//p.calcNextCheckup();
 		if(pets.add(p)) {
@@ -240,6 +246,7 @@ public class PetiarySys {
 			POS.close();
 			VOS.close();
 			TOS.close();
+
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -269,6 +276,7 @@ public class PetiarySys {
 			
 			POS.close();
 			VOS.close();
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

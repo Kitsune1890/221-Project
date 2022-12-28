@@ -22,6 +22,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class MainFrame extends JFrame {
 
@@ -109,6 +110,14 @@ public class MainFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				JComboBox cb = addpet.getCbVetList();
 				cb.setModel(new DefaultComboBoxModel(PetiarySys.getVetnames()));
+				
+				String allid="Existing ids\n";
+				for(String id :PetiarySys.getPetIds()) {
+					allid+=id+"\n";
+				}
+				JTextArea txt=addpet.getADisplay();
+				txt.setText(allid);
+				
 				addpet.setVisible(true);
 				dispose();
 			}

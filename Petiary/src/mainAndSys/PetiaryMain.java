@@ -17,7 +17,7 @@ public class PetiaryMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		MainFrame mf = new MainFrame();
 		mf.setVisible(true); //push plss
 	}
