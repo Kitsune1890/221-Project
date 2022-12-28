@@ -10,6 +10,7 @@ import mainAndSys.PetiarySys;
 
 public class Vaccination implements Serializable{
 
+	private static final long serialVersionUID = 6529685098267757690L;
 	private int id;
 	private String Name;
 	private int StartMonth;// min age to be vaccinated
