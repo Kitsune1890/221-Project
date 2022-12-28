@@ -23,6 +23,7 @@ import java.util.Calendar;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
+import javax.swing.DefaultComboBoxModel;
 
 public class AddVac extends JFrame {
 
@@ -61,6 +62,7 @@ public class AddVac extends JFrame {
 		contentPane.add(date);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(PetiarySys.getVacNames()));
 		comboBox.setBounds(157, 80, 123, 22);
 		contentPane.add(comboBox);
 		
