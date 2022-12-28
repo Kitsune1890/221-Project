@@ -74,7 +74,8 @@ public class AddVac extends JFrame {
 		JButton add_bt = new JButton("Add\r\n");
 		add_bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(comboBox.getSelectedItem().equals("")) {
+				boolean flag = false;
+				int index = 0;
 					try {
 						Calendar calendar = PetiarySys.stringtoCalendar(date_tf.getText());
 						ArrayList<Vaccination> temp = (ArrayList<Vaccination>) PetiarySys.getVacTemplate().clone();
@@ -83,29 +84,29 @@ public class AddVac extends JFrame {
 							vac = temp.get(PetiarySys.getVacTemplateIndex((String)comboBox.getSelectedItem()));
 							vac.addVacDate(calendar);
 							PetiarySys.searchPet((String) mf.getComboBox().getSelectedItem()).getVac().add(vac);
-							textArea.setText("Vaccination record added");
+							textArea.setText((String) mf.getComboBox().getSelectedItem() + "Vaccination record added");
 						}else {
 							for(int i = 0; i < PetiarySys.searchPet((String) mf.getComboBox().getSelectedItem()).getVac().size(); i++) {
 								if(PetiarySys.getVacTemplateIndex((String)comboBox.getSelectedItem()) == temp.get(i).getId()) {
-									PetiarySys.searchPet((String) mf.getComboBox().getSelectedItem()).getVac().get(i).addVacDate(calendar);
-									textArea.setText("Vaccination record Updated");
+									flag = true;
+									index = i;
 								}
-								else {
-									vac = temp.get(PetiarySys.getVacTemplateIndex((String)comboBox.getSelectedItem()));
-									vac.addVacDate(calendar);
-									PetiarySys.searchPet((String) mf.getComboBox().getSelectedItem()).getVac().add(vac);
-									textArea.setText("Vaccination record added");
-								}
+							}
+							if(flag) {
+								PetiarySys.searchPet((String) mf.getComboBox().getSelectedItem()).getVac().get(index).addVacDate(calendar);
+								textArea.setText((String) mf.getComboBox().getSelectedItem() + "Vaccination record Updated");
+							}
+							else {
+								vac = temp.get(PetiarySys.getVacTemplateIndex((String)comboBox.getSelectedItem()));
+								vac.addVacDate(calendar);
+								PetiarySys.searchPet((String) mf.getComboBox().getSelectedItem()).getVac().add(vac);
+								textArea.setText((String) mf.getComboBox().getSelectedItem() + "Vaccination record added");
 							}
 						}						
 					} catch (ParseException e1) {
 						// TODO Auto-generated catch block
-						e1.printStackTrace();
+						textArea.setText("Please Enter A date");
 					}
-				}else {
-					textArea.setText("Please Enter A date");
-				}
-					
 			}
 		});
 		add_bt.setBounds(108, 170, 89, 23);

@@ -1,5 +1,6 @@
 package hasA;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
 
@@ -107,11 +108,16 @@ public class Vaccination implements Serializable{
 
 	@Override
 	public String toString() {
+		SimpleDateFormat format = new SimpleDateFormat("dd-M-yyyy");
+		String str = "";
+		for(Calendar temp : vactinationDates) {
+			str += "\n\t" + format.format(temp.getTime());
+		}
 		return "Vactination"
 				+ "\nName= " + Name 
 				+ "\nStart Month= " + StartMonth 
 				+ "\nVactination Period= " + vacPeriod
-				+ "\nVactination Dates= " + vactinationDates;
+				+ "\nVactination Dates= " + str;
 	}
 	
 	
