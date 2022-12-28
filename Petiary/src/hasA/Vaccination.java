@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import java.util.Calendar;
 
+import mainAndSys.PetiarySys;
+
 public class Vaccination implements Serializable{
 
 	private int id;
@@ -84,11 +86,31 @@ public class Vaccination implements Serializable{
 	}
 	
 	//calculates next vaccination date
-	public Calendar calcVacDate(Calendar bDate) {
+	public String calcVacDate(Calendar bDate) {
 		Calendar newDate = null;
 		Calendar sysdate = Calendar.getInstance();
 		double days = (double) Duration.between(sysdate.toInstant(), bDate.toInstant()).toDays();
 		int months = (int) days / 30;
+		
+		if(months > StartMonth) {
+			if(vactinationDates.size() != 0) {
+				days = (double) Duration.between(sysdate.toInstant(), vactinationDates.get(vactinationDates.size()-1).toInstant()).toDays();
+				months = (int) days/30;
+				if(months < 0)
+					return "You should go to vet to Vaccination of your pet";
+				else {
+					newDate = (Calendar) vactinationDates.get(vactinationDates.size()-1).clone();
+					newDate.add(Calendar.MONTH, months);
+					return "There is " + months + " to vaccination. Your recomended vaccination date is " + PetiarySys.getSdf().format(newDate.getTime());  		
+				}
+					
+			}else
+				return "There is no date records";
+		}else {
+			return "Your pet is too young for this vaccine";
+		}
+		
+		/*
 		
 		if (vactinationDates.size() == 0) {
 			if(months < StartMonth) {
@@ -103,15 +125,15 @@ public class Vaccination implements Serializable{
 			newDate = vactinationDates.get(vactinationDates.size() - 1);
 			newDate.add(Calendar.MONTH, vacPeriod);
 		}
-		return newDate;
+		return newDate;*/
+		
 	}
 
 	@Override
 	public String toString() {
-		SimpleDateFormat format = new SimpleDateFormat("dd-M-yyyy");
 		String str = "";
 		for(Calendar temp : vactinationDates) {
-			str += "\n\t" + format.format(temp.getTime());
+			str += "\n\t" + PetiarySys.getSdf().format(temp.getTime());
 		}
 		return "Vactination"
 				+ "\nName= " + Name 

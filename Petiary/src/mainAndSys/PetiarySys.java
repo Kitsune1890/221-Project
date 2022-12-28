@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class PetiarySys {
 	private static HashSet<Vet> vets = new HashSet<Vet>();
 	private static ArrayList<Vaccination> vacTemplate = new ArrayList<Vaccination>();
 	private final static String PetSave = "petSave.bin", VetSave = "vetSave.bin", templateVacSave = "template.bin";
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
 	
 	public static boolean addCat(int id, String name, String breed, Calendar bDate, String illness, Vet vet, double weight) {
 		Pet p = new Cat(id, name, breed, bDate, illness, vet, weight);
@@ -294,8 +296,13 @@ public class PetiarySys {
 		return true;
 	}
 	
+	
+	
+	public static SimpleDateFormat getSdf() {
+		return sdf;
+	}
+
 	public static Calendar stringtoCalendar(String str) throws ParseException {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
 		Date date = sdf.parse(str);
         return dateToCalendar(date);
 	}
@@ -305,7 +312,8 @@ public class PetiarySys {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
 		return calendar;
-
 	}
+
+	
 	
 }
