@@ -207,10 +207,10 @@ public class PetiarySys {
 		return ids;
 	}
 	
-	public static String[] getVacNames(Pet obj) {
+	public static String[] getVacNames() {
 		String[] str = new String[5];
 		int i = 0;
-		for(Vaccination vac : obj.getVac()) {
+		for(Vaccination vac : vacTemplate) {
 			str[i] = vac.getName();
 			i++;
 		}
