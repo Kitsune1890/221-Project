@@ -118,7 +118,7 @@ public abstract class Pet implements WeightCheck ,Serializable{
 	public abstract boolean checkWeight();
 	
 	public void calcNextCheckup() {
-		int dayOfWeek;
+		//int dayOfWeek;
 		if(checkup == null) {
 			checkup = Calendar.getInstance();
 			checkup.add(Calendar.MONTH, 2);

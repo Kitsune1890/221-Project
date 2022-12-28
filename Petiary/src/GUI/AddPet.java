@@ -141,7 +141,7 @@ public class AddPet extends JFrame {
 		contentPane.add(btnDeletePet);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(294, 24, 220, 277);
+		scrollPane.setBounds(294, 24, 246, 369);
 		contentPane.add(scrollPane);
 		
 		txtADisplay = new JTextArea();

@@ -19,7 +19,7 @@ public class Dog extends Pet {
 					+ "\nbreed=" + breed 
 					+ "\nillness=" + illness
 					+ "\nbirth date=" + bDate.get(Calendar.DAY_OF_MONTH)+"."+ bDate.get(Calendar.MONTH)+"."+bDate.get(Calendar.YEAR)
-					//+ "\nNext checkup=" + checkup.get(Calendar.DAY_OF_MONTH)+"."+ checkup.get(Calendar.MONTH)+"."+checkup.get(Calendar.YEAR)
+					+ "\nNext checkup=" + checkup.get(Calendar.DAY_OF_MONTH)+"."+ checkup.get(Calendar.MONTH)+"."+checkup.get(Calendar.YEAR)
 					+ "\nVeterinary=" + vet.getName()
 					+ "\nweight=" + weight
 					+ "\ndogSize=" + dogSize; 

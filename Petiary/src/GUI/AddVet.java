@@ -62,7 +62,7 @@ public class AddVet extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Open Days:");
-		lblNewLabel_3.setBounds(25, 98, 64, 14);
+		lblNewLabel_3.setBounds(25, 98, 99, 14);
 		contentPane.add(lblNewLabel_3);
 		
 		JCheckBox chkBoxTUE = new JCheckBox("Tue");

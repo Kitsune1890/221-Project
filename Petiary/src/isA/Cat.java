@@ -16,7 +16,7 @@ public class Cat extends Pet{
 				+ "\nbreed=" + breed 
 				+ "\nillness=" + illness
 				+ "\nbirth date:" + bDate.get(Calendar.DAY_OF_MONTH)+"."+ bDate.get(Calendar.MONTH)+"."+bDate.get(Calendar.YEAR)
-				//+ "\nNext checkup=" + checkup.get(Calendar.DAY_OF_MONTH)+"."+ checkup.get(Calendar.MONTH)+"."+checkup.get(Calendar.YEAR) 
+				+ "\nNext checkup=" + checkup.get(Calendar.DAY_OF_MONTH)+"."+ checkup.get(Calendar.MONTH)+"."+checkup.get(Calendar.YEAR) 
 				+"\nVet:"+vet.getName()
 				+ "\nweight=" + weight;
 		
