@@ -11,14 +11,14 @@ public class Cat extends Pet{
 
 	@Override
 	public String toString() {
-		return  "id=" + id + 
-				"\nname=" + name 
-				+ "\nbreed=" + breed 
-				+ "\nillness=" + illness
-				+ "\nbirth date:" + bDate.get(Calendar.DAY_OF_MONTH)+"."+ bDate.get(Calendar.MONTH)+"."+bDate.get(Calendar.YEAR)
-				+ "\nNext checkup=" + checkup.get(Calendar.DAY_OF_MONTH)+"."+ checkup.get(Calendar.MONTH)+"."+checkup.get(Calendar.YEAR) 
-				+"\nVet:"+vet.getName()
-				+ "\nweight=" + weight;
+		return  "Id: " + id
+				+ "\nName: " + name 
+				+ "\nBreed: " + breed 
+				+ "\nIllness: " + illness
+				+ "\nBirth date: " + bDate.get(Calendar.DAY_OF_MONTH)+"."+ bDate.get(Calendar.MONTH)+"."+bDate.get(Calendar.YEAR)
+				+ "\nNext checkup -> " + checkup.get(Calendar.DAY_OF_MONTH)+"."+ checkup.get(Calendar.MONTH)+"."+checkup.get(Calendar.YEAR) 
+				+ "\nVet: "+vet.getName()
+				+ "\nWeight: " + weight;
 		
 		
 		
