@@ -15,8 +15,9 @@ public class Dog extends Pet {
 
 		@Override
 		public String toString() {
-			return  "id=" + id + 
-					"\nname=" + name 
+			return  "Dog information\n"
+					+"id=" + id
+					+"\nname=" + name 
 					+ "\nbreed=" + breed 
 					+ "\nillness=" + illness
 					+ "\nBirth date: " + PetiarySys.getSdf().format(bDate.getTime())
