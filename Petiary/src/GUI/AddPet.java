@@ -262,25 +262,36 @@ public class AddPet extends JFrame {
 		
 		btnSearchPet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pet pet = PetiarySys.searchPet(petIdField.getText());
-				if(pet == null) {
-					txtADisplay.setText("Pet couldn't found");
+				if(!petIdField.getText().equals("")) {
+					Pet pet = PetiarySys.searchPet(petIdField.getText());
+					if(pet == null) {
+						txtADisplay.setText("Pet couldn't found");
+					}
+					else {
+						txtADisplay.setText(pet.toString());
+					}
+				}else {
+					txtADisplay.setText("Please enter ID");
 				}
-				else {
-					txtADisplay.setText(pet.toString());
-				}
+				
+				
 				
 			}
 		});
 		
 		btnDeletePet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				boolean success=PetiarySys.removePet(petIdField.getText());
-				if(success) {
-					txtADisplay.setText("successfully removed");
+				if(!petIdField.getText().equals("")) {
+					boolean success=PetiarySys.removePet(petIdField.getText());
+					if(success) {
+						txtADisplay.setText("successfully removed");
+					}
+					else {
+						txtADisplay.setText("couldn't removed");
+					}
 				}
 				else {
-					txtADisplay.setText("couldn't removed");
+					txtADisplay.setText("Please enter ID");
 				}
 				
 			}
