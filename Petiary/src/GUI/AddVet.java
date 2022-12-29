@@ -112,10 +112,20 @@ public class AddVet extends JFrame {
 		btnAddVet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				boolean boolArr[] = {chkBoxMON.isSelected(), chkBoxTUE.isSelected(), chkBoxWED.isSelected(), chkBoxTHU.isSelected(), chkBoxFRI.isSelected(), chkBoxSAT.isSelected(), chkBoxSUN.isSelected()};
-				//txtADisplay.setText(Boolean.toString(boolArr[6]));
+				
+				//checks if there are any open days
+				boolean flag = true;
+				for (int i = 0; i < boolArr.length; i++) {
+					if(boolArr[i]) {
+						flag = false;
+					}
+				}
 				
 				if(txtName.getText().equals("") || txtAddress.getText().equals("")|| txtPhone.getText().equals("")) {
 					txtADisplay.setText("Please do not leave empty fields!");
+				}
+				else if (flag) {
+					txtADisplay.setText("Please select at least one open day!");
 				}
 				else if(PetiarySys.addVet(txtName.getText(), txtAddress.getText(), txtPhone.getText(), boolArr)) {
 					txtADisplay.setText("The veterinary " + txtName.getText() + " is added!");
