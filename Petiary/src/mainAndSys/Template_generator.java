@@ -19,6 +19,25 @@ public class Template_generator {
 	private final static String PetSave = "petSave.bin", VetSave = "vetSave.bin", templateVacSave = "template.bin";
 	private static HashSet<Pet> pets = new HashSet<Pet>();
 	private static HashSet<Vet> vets = new HashSet<Vet>();
+	private static ArrayList<Vaccination> vacTemplate = new ArrayList<Vaccination>();
+	
+	public static boolean writeTemplate() throws FileNotFoundException {
+		
+		try {
+			FileOutputStream vac = new FileOutputStream(templateVacSave);
+			ObjectOutputStream VAC = new ObjectOutputStream(vac);
+			VAC.writeObject((ArrayList<Vaccination>)vacTemplate);
+			vac.close();
+			VAC.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
+		
+		return true;
+	}
 
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
@@ -67,7 +86,7 @@ public class Template_generator {
 			System.out.println(temp.toString());
 			
 		}
-		PetiarySys.writeTemplate();
+		writeTemplate();
 		
 		boolean[] arr = {true, true, true, false, true, true, true};
 		
