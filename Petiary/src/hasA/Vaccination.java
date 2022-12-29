@@ -136,8 +136,8 @@ public class Vaccination implements Serializable, SimpleDate{
 		return "Vaccination Info:"
 				+ "\nName: " + Name 
 				+ "\nStart Month: " + StartMonth 
-				+ "\nVactination Period: " + vacPeriod
-				+ "\nVactination Dates -> " + str + "\n";
+				+ "\nVaccination Period: " + vacPeriod
+				+ "\nVaccination Dates -> " + str + "\n";
 	}
 	
 	
