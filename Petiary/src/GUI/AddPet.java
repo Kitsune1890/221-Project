@@ -208,7 +208,7 @@ public class AddPet extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//int id, String name, String breed, Calendar bDate, String illness, Vet vet, double weight,
 				if(nameField.getText().isBlank() ||breedField.getText().isBlank()|| bdateField.getText().isBlank() || weightField.getText().isBlank()) {
-					txtADisplay.setText("please fill all of the fields");
+					txtADisplay.setText("Please fill all the fields.");
 				}
 				else {
 					int id = Integer.parseInt(idField.getText());
@@ -225,7 +225,7 @@ public class AddPet extends JFrame {
 					}
 					
 					if(cal.compareTo(Calendar.getInstance())>0) {
-						txtADisplay.setText("Birthday day cannot be later than today's date.");
+						txtADisplay.setText("Birthday cannot be later than today's date.");
 					}
 					else {
 						String illness=illnessField.getText();
@@ -267,13 +267,13 @@ public class AddPet extends JFrame {
 				if(!petIdField.getText().equals("")) {
 					Pet pet = PetiarySys.searchPet(petIdField.getText());
 					if(pet == null) {
-						txtADisplay.setText("Pet couldn't found");
+						txtADisplay.setText("The pet by the Id " + petIdField.getText() + "does not exist.");
 					}
 					else {
 						txtADisplay.setText(pet.toString());
 					}
 				}else {
-					txtADisplay.setText("Please enter ID");
+					txtADisplay.setText("Please enter an ID.");
 				}
 				
 				
