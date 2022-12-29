@@ -90,18 +90,23 @@ public class Vaccination implements Serializable, SimpleDate{
 	public String calcVacDate(Calendar bDate) {
 		Calendar newDate = null;
 		Calendar sysdate = Calendar.getInstance();
-		double days = (double) Duration.between(sysdate.toInstant(), bDate.toInstant()).toDays();
+		double days = (double) Duration.between(bDate.toInstant(), sysdate.toInstant()).toDays();
 		int months = (int) days / 30;
+		System.out.println(days);
+		System.out.println(months);
 		
 		if(months > StartMonth) {
 			if(vactinationDates.size() != 0) {
-				days = (double) Duration.between(sysdate.toInstant(), vactinationDates.get(vactinationDates.size()-1).toInstant()).toDays();
-				months = (int) days/30;
-				if(months < 0)
+				days = (double) Duration.between(vactinationDates.get(vactinationDates.size()-1).toInstant(), sysdate.toInstant()).toDays();
+				months = (int) (days/30);
+				System.out.println(days);
+				System.out.println(months);
+				
+				if(months <= 0)
 					return "You should go to vet to Vaccination of your pet";
 				else {
 					newDate = (Calendar) vactinationDates.get(vactinationDates.size()-1).clone();
-					newDate.add(Calendar.MONTH, months);
+					newDate.add(Calendar.MONTH, vacPeriod);
 					return "There is " + months + " to vaccination. Your recomended vaccination date is " + sdf.format(newDate.getTime());  		
 				}
 					
