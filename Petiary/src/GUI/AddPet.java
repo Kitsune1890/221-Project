@@ -226,36 +226,41 @@ public class AddPet extends JFrame {
 						e1.printStackTrace();
 					}
 					
-					
-					String illness=illnessField.getText();
-					Vet vet=PetiarySys.searchVet(cbVetList.getSelectedItem().toString());
-					
-					double weight=Double.parseDouble(weightField.getText());
-					
-					boolean completed=false;
-					if(cat.isSelected()) {
-						completed=PetiarySys.addCat(id,name, breed, cal, illness, vet, weight);
-					}
-					else
-					{
-						if(dogsizeField.getText().isBlank()) {
-							txtADisplay.setText("please fill all of the fields");
-						}
-						else {
-							String dogsize=(dogsizeField.getText());
-							completed=PetiarySys.addDog(id,name, breed, cal, illness, vet, weight,dogsize );
-						}
-					}
-					
-					if(completed) {
-						txtADisplay.setText("The pet " + name + " is added!");
-						
+					if(cal.compareTo(Calendar.getInstance())>0) {
+						txtADisplay.setText("Birthday day cannot be later than today's date.");
 					}
 					else {
-						txtADisplay.setText("The pet " + name + " already exists!");
+						String illness=illnessField.getText();
+						Vet vet=PetiarySys.searchVet(cbVetList.getSelectedItem().toString());
+						
+						double weight=Double.parseDouble(weightField.getText());
+						
+						boolean completed=false;
+						if(cat.isSelected()) {
+							completed=PetiarySys.addCat(id,name, breed, cal, illness, vet, weight);
+						}
+						else
+						{
+							if(dogsizeField.getText().isBlank()) {
+								txtADisplay.setText("please fill all of the fields");
+							}
+							else {
+								String dogsize=(dogsizeField.getText());
+								completed=PetiarySys.addDog(id,name, breed, cal, illness, vet, weight,dogsize );
+							}
+						}
+						
+						if(completed) {
+							txtADisplay.setText("The pet " + name + " is added!");
+							
+						}
+						else {
+							txtADisplay.setText("The pet " + name + " already exists!");
+						}
+						
+				
 					}
 					
-			
 				}
 				
 				
