@@ -84,14 +84,7 @@ public class MainFrame extends JFrame {
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String str = comboBox.getSelectedItem().toString();
-				Pet p=PetiarySys.searchPet(str); 
-				if(p instanceof Cat) {
-					imageLbl.setIcon(cat);
-				}	
-				else{
-					imageLbl.setIcon(dog);
-					System.out.println("dog");
-				}
+				
 					
 			}
 		});
@@ -106,6 +99,15 @@ public class MainFrame extends JFrame {
 				else {
 					String str = comboBox.getSelectedItem().toString();
 					txtArea.setText(PetiarySys.searchPet(str).toString());  
+					
+					Pet p=PetiarySys.searchPet(str); 
+					if(p instanceof Cat) {
+						imageLbl.setIcon(cat);
+					}	
+					else{
+						imageLbl.setIcon(dog);
+						System.out.println("dog");
+					}
 				}
 			}
 		});
