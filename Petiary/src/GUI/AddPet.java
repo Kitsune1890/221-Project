@@ -208,7 +208,7 @@ public class AddPet extends JFrame {
 		{
 			public void actionPerformed(ActionEvent e) {
 				//int id, String name, String breed, Calendar bDate, String illness, Vet vet, double weight,
-				if(idField.getText().isBlank() || nameField.getText().isBlank() ||breedField.getText().isBlank()|| bdateField.getText().isBlank() || weightField.getText().isBlank()) {
+				if(idField.getText().isBlank() || nameField.getText().isBlank() ||breedField.getText().isBlank()|| bdateField.getText().isBlank() || weightField.getText().isBlank() || cbVetList.getSelectedItem() == null) {
 					txtADisplay.setText("Please fill all the fields.");
 				}
 				else {
