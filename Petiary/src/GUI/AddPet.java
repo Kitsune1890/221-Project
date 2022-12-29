@@ -97,6 +97,7 @@ public class AddPet extends JFrame {
 		contentPane.add(breedField);
 		
 		bdateField = new JTextField();
+		bdateField.setToolTipText("ex: 12/12/2022");
 		bdateField.setBounds(124, 137, 129, 20);
 		bdateField.setColumns(10);
 		contentPane.add(bdateField);
