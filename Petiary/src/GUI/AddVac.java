@@ -93,9 +93,14 @@ public class AddVac extends JFrame {
 								}
 							}
 							if(flag) {
-								PetiarySys.searchPet((String) mf.getComboBox().getSelectedItem()).getVac().get(index).addVacDate(calendar);
-								textArea.setText((String) mf.getComboBox().getSelectedItem() + "Vaccination record Updated");
+								if(calendar.compareTo(PetiarySys.searchPet((String) mf.getComboBox().getSelectedItem()).getVac().get(index).getVactinationDates().get(PetiarySys.searchPet((String) mf.getComboBox().getSelectedItem()).getVac().get(index).getVactinationDates().size()-1))>0) {
+									PetiarySys.searchPet((String) mf.getComboBox().getSelectedItem()).getVac().get(index).addVacDate(calendar);
+									textArea.setText((String) mf.getComboBox().getSelectedItem() + "Vaccination record Updated");
+								}else {
+									textArea.setText("You should add newer that current date");
+								}
 							}
+								
 							else {
 								vac = temp.get(PetiarySys.getVacTemplateIndex((String)comboBox.getSelectedItem()));
 								vac.addVacDate(calendar);
