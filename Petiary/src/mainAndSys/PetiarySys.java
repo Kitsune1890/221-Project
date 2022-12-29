@@ -284,25 +284,6 @@ public class PetiarySys implements SimpleDate{
 		return true;
 		//
 	}
-	
-	public static boolean writeTemplate() throws FileNotFoundException {
-		
-		try {
-			FileOutputStream vac = new FileOutputStream(templateVacSave);
-			ObjectOutputStream VAC = new ObjectOutputStream(vac);
-			VAC.writeObject((ArrayList<Vaccination>)vacTemplate);
-			vac.close();
-			VAC.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return false;
-		}
-		
-		
-		return true;
-	}
-	
 
 	public static Calendar stringtoCalendar(String str) throws ParseException {
 		Date date = sdf.parse(str);
