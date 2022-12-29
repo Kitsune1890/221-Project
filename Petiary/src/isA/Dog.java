@@ -14,15 +14,15 @@ public class Dog extends Pet {
 
 		@Override
 		public String toString() {
-			return  "id=" + id + 
-					"\nname=" + name 
-					+ "\nbreed=" + breed 
-					+ "\nillness=" + illness
-					+ "\nbirth date=" + bDate.get(Calendar.DAY_OF_MONTH)+"."+ bDate.get(Calendar.MONTH)+"."+bDate.get(Calendar.YEAR)
-					+ "\nNext checkup=" + checkup.get(Calendar.DAY_OF_MONTH)+"."+ checkup.get(Calendar.MONTH)+"."+checkup.get(Calendar.YEAR)
-					+ "\nVeterinary=" + vet.getName()
-					+ "\nweight=" + weight
-					+ "\ndogSize=" + dogSize; 
+			return  "Dog Information:\n\nId: " + id 
+					+ "\nName: " + name 
+					+ "\nBreed: " + breed 
+					+ "\nIllness: " + illness
+					+ "\nBirth date: " + bDate.get(Calendar.DAY_OF_MONTH)+"."+ bDate.get(Calendar.MONTH)+"."+bDate.get(Calendar.YEAR)
+					+ "\nNext checkup -> " + checkup.get(Calendar.DAY_OF_MONTH)+"."+ checkup.get(Calendar.MONTH)+"."+checkup.get(Calendar.YEAR)
+					+ "\nVeterinary: " + vet.getName()
+					+ "\nWeight: " + weight
+					+ "\nDog Size: " + dogSize; 
 		}
 		
 		
