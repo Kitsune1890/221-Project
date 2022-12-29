@@ -95,9 +95,9 @@ public class MainFrame extends JFrame {
 					txtArea.setText("Please choose a pet.");
 				else {
 					String str = comboBox.getSelectedItem().toString();
-					txtArea.setText(PetiarySys.searchPet(str).toString());  
+					Pet p = PetiarySys.searchPet(str);
+					txtArea.setText(p.toString() + "\n\n" + PetiarySys.displayVac(p));  
 					
-					Pet p=PetiarySys.searchPet(str); 
 					if(p instanceof Cat) {
 						imageLbl.setIcon(cat);
 					}	
