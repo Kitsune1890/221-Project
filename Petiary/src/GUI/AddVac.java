@@ -79,8 +79,13 @@ public class AddVac extends JFrame {
 						Calendar calendar = PetiarySys.stringtoCalendar(date_tf.getText());
 						Pet pet =  PetiarySys.searchPet(mf.getComboBox().getSelectedItem().toString());
 						int index = comboBox.getSelectedIndex();
-						PetiarySys.addVaccination(pet, index, calendar);
-						textArea.setText(pet.getId() + "'s Vaccination record added");
+						if(PetiarySys.addVaccination(pet, index, calendar)) {
+							textArea.setText(pet.getId() + "'s Vaccination record added");
+						}else {
+							textArea.setText("Please check date again!!!");
+						}
+						
+						
 					} catch (ParseException e1) {
 						// TODO Auto-generated catch block
 						textArea.setText("Please Enter A date");

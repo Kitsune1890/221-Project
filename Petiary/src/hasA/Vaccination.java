@@ -82,8 +82,12 @@ public class Vaccination implements Serializable, SimpleDate{
 	}
 	
 	public boolean addVacDate(Calendar date) {
-		vactinationDates.add(date);
-		return true;
+		if(vactinationDates.get(vactinationDates.size()-1).compareTo(date) < 0 && date.compareTo(Calendar.getInstance()) <= 0) {
+			vactinationDates.add(date);
+			return true;
+		}
+		else return false;
+			
 	}
 	
 	//calculates next vaccination date
@@ -103,7 +107,7 @@ public class Vaccination implements Serializable, SimpleDate{
 				else {
 					newDate = (Calendar) vactinationDates.get(vactinationDates.size()-1).clone();
 					newDate.add(Calendar.MONTH, vacPeriod);
-					return "There is " + months + " to vaccination. Your recomended vaccination date is " + sdf.format(newDate.getTime());  		
+					return "There is " + months + " to vaccination.\nYour recomended vaccination date is " + sdf.format(newDate.getTime());  		
 				}
 					
 			}else
