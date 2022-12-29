@@ -245,6 +245,7 @@ public class AddPet extends JFrame {
 						
 						if(completed) {
 							txtADisplay.setText("The pet " + name + " is added!");
+							PetiarySys.writeIntoFile();
 							
 						}
 						else {
@@ -299,7 +300,6 @@ public class AddPet extends JFrame {
 		
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PetiarySys.writeIntoFile();
 				fr.getComboBox().setModel(new DefaultComboBoxModel(PetiarySys.getPetIds()));
 				fr.setVisible(true);
 				dispose();
