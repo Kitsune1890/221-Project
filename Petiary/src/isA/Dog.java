@@ -18,8 +18,8 @@ public class Dog extends Pet {
 					+ "\nName: " + name 
 					+ "\nBreed: " + breed 
 					+ "\nIllness: " + illness
-					+ "\nBirth date: " + bDate.get(Calendar.DAY_OF_MONTH)+"."+ bDate.get(Calendar.MONTH)+"."+bDate.get(Calendar.YEAR)
-					+ "\nNext checkup -> " + checkup.get(Calendar.DAY_OF_MONTH)+"."+ checkup.get(Calendar.MONTH)+"."+checkup.get(Calendar.YEAR)
+					+ "\nBirth date: " + sdf.format(bDate.getTime())
+					+ "\nNext checkup -> " + sdf.format(checkup.getTime())
 					+ "\nVeterinary: " + vet.getName()
 					+ "\nWeight: " + weight
 					+ "\nDog Size: " + dogSize; 
