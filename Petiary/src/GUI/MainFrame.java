@@ -118,7 +118,7 @@ public class MainFrame extends JFrame {
 				JComboBox cb = addpet.getCbVetList();
 				cb.setModel(new DefaultComboBoxModel(PetiarySys.getVetnames()));
 				
-				String allid="Existing ids\n";
+				String allid="Existing Ids:\n";
 				for(String id :PetiarySys.getPetIds()) {
 					allid+=id+"\n";
 				}
