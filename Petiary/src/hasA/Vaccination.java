@@ -139,7 +139,7 @@ public class Vaccination implements Serializable{
 				+ "\nName= " + Name 
 				+ "\nStart Month= " + StartMonth 
 				+ "\nVactination Period= " + vacPeriod
-				+ "\nVactination Dates= " + str;
+				+ "\nVactination Dates= " + str + "\n";
 	}
 	
 	
