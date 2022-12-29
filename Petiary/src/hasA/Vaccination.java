@@ -6,9 +6,10 @@ import java.util.ArrayList;
 
 import java.util.Calendar;
 
+import interfaces.SimpleDate;
 import mainAndSys.PetiarySys;
 
-public class Vaccination implements Serializable{
+public class Vaccination implements Serializable, SimpleDate{
 
 	private int id;
 	private String Name;
@@ -101,7 +102,7 @@ public class Vaccination implements Serializable{
 				else {
 					newDate = (Calendar) vactinationDates.get(vactinationDates.size()-1).clone();
 					newDate.add(Calendar.MONTH, months);
-					return "There is " + months + " to vaccination. Your recomended vaccination date is " + PetiarySys.getSdf().format(newDate.getTime());  		
+					return "There is " + months + " to vaccination. Your recomended vaccination date is " + sdf.format(newDate.getTime());  		
 				}
 					
 			}else
@@ -133,7 +134,7 @@ public class Vaccination implements Serializable{
 	public String toString() {
 		String str = "";
 		for(Calendar temp : vactinationDates) {
-			str += "\n\t" + PetiarySys.getSdf().format(temp.getTime());
+			str += "\n\t" + sdf.format(temp.getTime());
 		}
 		return "Vactination"
 				+ "\nName= " + Name 

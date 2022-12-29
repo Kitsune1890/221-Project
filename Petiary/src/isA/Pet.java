@@ -6,9 +6,10 @@ import java.util.Calendar;
 import java.util.Objects;
 
 import hasA.*;
+import interfaces.SimpleDate;
 import interfaces.WeightCheck;
 
-public abstract class Pet implements WeightCheck ,Serializable{
+public abstract class Pet implements WeightCheck ,Serializable, SimpleDate{
 
 	protected int id;
 	protected String name,

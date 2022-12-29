@@ -19,16 +19,16 @@ import java.util.TreeSet;
 
 import hasA.Vaccination;
 import hasA.Vet;
+import interfaces.SimpleDate;
 import isA.Cat;
 import isA.Dog;
 import isA.Pet;
 
-public class PetiarySys {
+public class PetiarySys implements SimpleDate{
 	private static HashSet<Pet> pets = new HashSet<Pet>();
 	private static HashSet<Vet> vets = new HashSet<Vet>();
 	private static ArrayList<Vaccination> vacTemplate = new ArrayList<Vaccination>();
 	private final static String PetSave = "petSave.bin", VetSave = "vetSave.bin", templateVacSave = "template.bin";
-	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/M/yyyy");
 	
 	public static boolean addCat(int id,String name, String breed, Calendar bDate, String illness, Vet vet, double weight) {
 
@@ -303,11 +303,6 @@ public class PetiarySys {
 		return true;
 	}
 	
-	
-	
-	public static SimpleDateFormat getSdf() {
-		return sdf;
-	}
 
 	public static Calendar stringtoCalendar(String str) throws ParseException {
 		Date date = sdf.parse(str);
