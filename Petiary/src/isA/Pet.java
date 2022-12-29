@@ -135,7 +135,7 @@ public abstract class Pet implements WeightCheck ,Serializable, SimpleDate{
 		}
 		
 		while(!vet.isOpen(checkup)) {
-			checkup.add(Calendar.DAY_OF_MONTH, 1);
+			checkup.add(Calendar.DATE, 1);
 		}
 	}
 }
