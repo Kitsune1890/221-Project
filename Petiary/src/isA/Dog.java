@@ -2,6 +2,7 @@ package isA;
 
 import java.util.Calendar;
 import hasA.*;
+import mainAndSys.PetiarySys;
 
 public class Dog extends Pet {
 	
@@ -18,8 +19,8 @@ public class Dog extends Pet {
 					"\nname=" + name 
 					+ "\nbreed=" + breed 
 					+ "\nillness=" + illness
-					+ "\nbirth date=" + bDate.get(Calendar.DAY_OF_MONTH)+"."+ bDate.get(Calendar.MONTH)+"."+bDate.get(Calendar.YEAR)
-					+ "\nNext checkup=" + checkup.get(Calendar.DAY_OF_MONTH)+"."+ checkup.get(Calendar.MONTH)+"."+checkup.get(Calendar.YEAR)
+					+ "\nBirth date: " + PetiarySys.getSdf().format(bDate.getTime())
+					+ "\nNext checkup -> " + PetiarySys.getSdf().format(checkup.getTime())
 					+ "\nVeterinary=" + vet.getName()
 					+ "\nweight=" + weight
 					+ "\ndogSize=" + dogSize; 
