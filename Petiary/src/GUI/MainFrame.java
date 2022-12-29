@@ -82,10 +82,7 @@ public class MainFrame extends JFrame {
 		comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(PetiarySys.getPetIds()));//get pet info at the beginning
 		comboBox.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String str = comboBox.getSelectedItem().toString();
-				
-					
+			public void actionPerformed(ActionEvent e) {	
 			}
 		});
 		comboBox.setBounds(164, 27, 415, 31);
