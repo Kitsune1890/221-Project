@@ -38,6 +38,7 @@ public class MainFrame extends JFrame {
 	
 	ImageIcon cat = new ImageIcon("img/cat2.jpeg");
 	ImageIcon dog = new ImageIcon("img/dog2.jpg");
+	ImageIcon gojo = new ImageIcon("img/gojo2.png");
 	
 	private JLabel imageLbl;
     
@@ -99,7 +100,13 @@ public class MainFrame extends JFrame {
 					txtArea.setText(p.toString() + "\n\n" + PetiarySys.displayVac(p));  
 					
 					if(p instanceof Cat) {
-						imageLbl.setIcon(cat);
+						if(p.getName().equalsIgnoreCase("gojo")) {
+							imageLbl.setIcon(gojo);
+						}
+						else {
+							imageLbl.setIcon(cat);
+						}
+						
 					}	
 					else{
 						imageLbl.setIcon(dog);
