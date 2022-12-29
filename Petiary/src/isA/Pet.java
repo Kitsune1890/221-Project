@@ -31,6 +31,7 @@ public abstract class Pet implements WeightCheck ,Serializable, SimpleDate{
 		this.bDate = bDate;
 		this.weight=weight;
 		this.vet = vet;
+		calcNextCheckup();
 		NumOfPets++;
 
 	}
