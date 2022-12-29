@@ -183,6 +183,7 @@ public class AddPet extends JFrame {
 		dogsize_CB.setModel(new DefaultComboBoxModel(new String[] {"Small", "Medium", "Large"}));
 		dogsize_CB.setBounds(124, 246, 129, 20);
 		contentPane.add(dogsize_CB);
+		dogsize_CB.setVisible(false);
 		
 		dogsizelabel.setVisible(false);
 		
