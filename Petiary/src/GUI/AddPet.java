@@ -36,9 +36,6 @@ public class AddPet extends JFrame {
 	private final ButtonGroup catOrDog = new ButtonGroup();
 	private JComboBox cbVetList;
 	private JTextArea txtADisplay;
-	
-
-	private JTextField dogsizeField;
 	private JTextField idField;
 
 	public JComboBox getCbVetList() {
@@ -173,12 +170,6 @@ public class AddPet extends JFrame {
 		dogsizelabel.setBounds(21, 248, 70, 13);
 		contentPane.add(dogsizelabel);
 		
-		
-		dogsizeField = new JTextField();
-		dogsizeField.setBounds(124, 245, 96, 19);
-		contentPane.add(dogsizeField);
-		dogsizeField.setColumns(10);
-		
 		JLabel idlabel = new JLabel("ID:  ");
 		idlabel.setBounds(21, 63, 45, 13);
 		contentPane.add(idlabel);
@@ -188,20 +179,24 @@ public class AddPet extends JFrame {
 		contentPane.add(idField);
 		idField.setColumns(10);
 		
+		JComboBox dogsize_CB = new JComboBox();
+		dogsize_CB.setModel(new DefaultComboBoxModel(new String[] {"Small", "Medium", "Large"}));
+		dogsize_CB.setBounds(124, 246, 129, 20);
+		contentPane.add(dogsize_CB);
+		
 		dogsizelabel.setVisible(false);
-		dogsizeField.setVisible(false);
 		
 		dog.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dogsizelabel.setVisible(true);
-				dogsizeField.setVisible(true);
+				dogsize_CB.setVisible(true);
 			}
 		});
 		
 		cat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dogsizelabel.setVisible(false);
-				dogsizeField.setVisible(false);
+				dogsize_CB.setVisible(false);
 			}
 		});
 		
@@ -241,13 +236,9 @@ public class AddPet extends JFrame {
 						}
 						else
 						{
-							if(dogsizeField.getText().isBlank()) {
-								txtADisplay.setText("please fill all of the fields");
-							}
-							else {
-								String dogsize=(dogsizeField.getText());
-								completed=PetiarySys.addDog(id,name, breed, cal, illness, vet, weight,dogsize );
-							}
+							String dogsize=(dogsize_CB.getSelectedItem().toString());
+							completed=PetiarySys.addDog(id,name, breed, cal, illness, vet, weight,dogsize );
+						
 						}
 						
 						if(completed) {
