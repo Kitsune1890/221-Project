@@ -94,13 +94,13 @@ public class Vaccination implements Serializable{
 		
 		if(months > StartMonth) {
 			if(vactinationDates.size() != 0) {
-				days = (double) Duration.between(sysdate.toInstant(), vactinationDates.get(vactinationDates.size()-1).toInstant()).toDays();
-				months = (int) days/30;
-				if(months < 0)
+				newDate = (Calendar) vactinationDates.get(vactinationDates.size()-1).clone();
+				newDate.add(Calendar.MONTH, vacPeriod);
+				if(newDate.getTimeInMillis() < sysdate.getTimeInMillis())
 					return "You should go to vet to Vaccination of your pet";
 				else {
-					newDate = (Calendar) vactinationDates.get(vactinationDates.size()-1).clone();
-					newDate.add(Calendar.MONTH, months);
+					days = (double) Duration.between(sysdate.toInstant(), newDate.toInstant()).toDays();
+					months = (int) days / 30;
 					return "There is " + months + " to vaccination. Your recomended vaccination date is " + PetiarySys.getSdf().format(newDate.getTime());  		
 				}
 					
