@@ -88,14 +88,15 @@ public class Template_generator {
 		}
 		writeTemplate();
 		
-		boolean[] arr = {true, true, true, false, true, true, true};
+		boolean[] arr = {true, true, true, true, true, false, false};
 		
-		Vet v = new Vet("ekin", "ankara", "220202", arr);
+		Vet v = new Vet("Bilgi Vet", "Üniversiteliler Mah. Çankaya/Ankara", "312-290-1111", arr);
 		
-		Calendar c = new Calendar.Builder().setCalendarType("iso8601").setDate(2002, 10, 3).build();	
-		c.set(2012, 10, 5);
+		Calendar c = new Calendar.Builder().setCalendarType("iso8601").setDate(2022, 5, 3).build();	
 		
-		Cat p = new Cat(1001, "Kedi", "Breed", c, "", v, 8);
+		Cat p = new Cat(1001, "Gojo", "British Shorthair", c, "", v, 3);
+		
+		System.out.println(p.toString());
 		
 		pets.add(p);
 		vets.add(v);
