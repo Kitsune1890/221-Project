@@ -12,23 +12,43 @@ public class Template_generator {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		
-		for (int i = 0; i < 5; i++) {
-			System.out.println("ID");
-			int id = sc.nextInt();
-			sc.nextLine();
-			System.out.println("Name");
-			String Name = sc.nextLine();
-			System.out.println("Start");
-			int start = sc.nextInt();
-			sc.nextLine();
-			System.out.println("period");
-			int period = sc.nextInt();
-			sc.hasNextLine();
+		
+		
+		int id = 0;
+		String Name = "Internal Parasite";
+		int start = 3;
+		int period = 2;
 			
-			PetiarySys.getVacTemplate().add(new Vaccination(id,Name,start,period));
+		PetiarySys.getVacTemplate().add(new Vaccination(id,Name,start,period));
+		
+		id = 1;
+		Name = "External Parasite";
+		start = 3;
+		period = 2;
 			
-			System.out.println("\n\n\n");
-		}
+		PetiarySys.getVacTemplate().add(new Vaccination(id,Name,start,period));
+		
+		id = 2;
+		Name = "Mixed";
+		start = 6;
+		period = 12;
+			
+		PetiarySys.getVacTemplate().add(new Vaccination(id,Name,start,period));
+		
+		id = 3;
+		Name = "Rabies";
+		start = 4;
+		period = 12;
+			
+		PetiarySys.getVacTemplate().add(new Vaccination(id,Name,start,period));
+		
+		id = 4;
+		Name = "Leukemia";
+		start = 12;
+		period = 12;
+			
+		PetiarySys.getVacTemplate().add(new Vaccination(id,Name,start,period));
+		
 		
 		for(Vaccination temp : PetiarySys.getVacTemplate()) {
 			System.out.println(temp.toString());
