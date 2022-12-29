@@ -19,10 +19,11 @@ public class Dog extends Pet {
 					+ "\nBreed: " + breed 
 					+ "\nIllness: " + illness
 					+ "\nBirth date: " + sdf.format(bDate.getTime())
-					+ "\nNext checkup -> " + sdf.format(checkup.getTime())
-					+ "\nVeterinary: " + vet.getName()
 					+ "\nWeight: " + weight
-					+ "\nDog Size: " + dogSize; 
+					+ "\nDog Size: " + dogSize
+					+ "\nHealth: " + (isHealthy() ? "Healthy" : "Unhealthy")
+					+ "\nNext checkup -> " + sdf.format(checkup.getTime())
+					+ "\nVeterinary: " + vet.getName();
 		}
 		
 		

@@ -16,9 +16,11 @@ public class Cat extends Pet{
 				+ "\nBreed: " + breed 
 				+ "\nIllness: " + illness
 				+ "\nBirth date: " + sdf.format(bDate.getTime())
+				+ "\nWeight: " + weight
+				+ "\nHealth: " + (isHealthy() ? "Healthy" : "Unhealthy")
 				+ "\nNext checkup -> " + sdf.format(checkup.getTime()) 
-				+ "\nVeterinary: "+vet.getName()
-				+ "\nWeight: " + weight;
+				+ "\nVeterinary: "+vet.getName();
+				
 		
 		
 		
