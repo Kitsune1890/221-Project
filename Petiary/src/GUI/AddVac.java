@@ -81,6 +81,7 @@ public class AddVac extends JFrame {
 						int index = comboBox.getSelectedIndex();
 						if(PetiarySys.addVaccination(pet, index, calendar)) {
 							textArea.setText(pet.getId() + "'s Vaccination record added");
+							PetiarySys.writeIntoFile();
 						}else {
 							textArea.setText("Please check date again!!!");
 						}
@@ -118,7 +119,6 @@ public class AddVac extends JFrame {
 		JButton btnClose = new JButton("Close");
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PetiarySys.writeIntoFile();
 				mf.setVisible(true);
 				dispose();
 			}
