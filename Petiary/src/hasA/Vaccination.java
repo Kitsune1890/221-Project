@@ -103,10 +103,15 @@ public class Vaccination implements Serializable, SimpleDate{
 		
 		if(months > StartMonth) {
 			if(vactinationDates.size() != 0) {
-				days = (double) Duration.between(vactinationDates.get(vactinationDates.size()-1).toInstant(), sysdate.toInstant()).toDays();
+				newDate = (Calendar) vactinationDates.get(vactinationDates.size()-1).clone();
+				newDate.add(Calendar.MONTH, vacPeriod);
+				days = (double) Duration.between(sysdate.toInstant(), newDate.toInstant()).toDays();
 				months = (int) (days/30);
 				
-				if(months <= 0 || months >= vacPeriod)
+				System.out.println(days);
+				System.out.println(months);
+				
+				if(months <= 0 || months > vacPeriod)
 					return "You should go to vet to Vaccination of your pet";
 				else {
 					newDate = (Calendar) vactinationDates.get(vactinationDates.size()-1).clone();
