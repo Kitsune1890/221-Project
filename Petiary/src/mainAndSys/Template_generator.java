@@ -51,38 +51,38 @@ public class Template_generator {
 		int start = 3;
 		int period = 2;
 			
-		PetiarySys.getVacTemplate().add(new Vaccination(id,Name,start,period));
+		vacTemplate.add(new Vaccination(id,Name,start,period));
 		
 		id = 1;
 		Name = "External Parasite";
 		start = 3;
 		period = 2;
 			
-		PetiarySys.getVacTemplate().add(new Vaccination(id,Name,start,period));
+		vacTemplate.add(new Vaccination(id,Name,start,period));
 		
 		id = 2;
 		Name = "Mixed";
 		start = 6;
 		period = 12;
 			
-		PetiarySys.getVacTemplate().add(new Vaccination(id,Name,start,period));
+		vacTemplate.add(new Vaccination(id,Name,start,period));
 		
 		id = 3;
 		Name = "Rabies";
 		start = 4;
 		period = 12;
 			
-		PetiarySys.getVacTemplate().add(new Vaccination(id,Name,start,period));
+		vacTemplate.add(new Vaccination(id,Name,start,period));
 		
 		id = 4;
 		Name = "Leukemia";
 		start = 12;
 		period = 12;
 			
-		PetiarySys.getVacTemplate().add(new Vaccination(id,Name,start,period));
+		vacTemplate.add(new Vaccination(id,Name,start,period));
 		
 		
-		for(Vaccination temp : PetiarySys.getVacTemplate()) {
+		for(Vaccination temp : vacTemplate) {
 			System.out.println(temp.toString());
 			
 		}

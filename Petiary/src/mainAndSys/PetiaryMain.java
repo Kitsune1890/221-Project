@@ -19,7 +19,7 @@ public class PetiaryMain {
 		}
 
 		MainFrame mf = new MainFrame();
-		mf.setVisible(true); //push plss
+		mf.setVisible(true);
 	}
 
 }

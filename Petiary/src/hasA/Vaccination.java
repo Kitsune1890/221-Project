@@ -82,7 +82,11 @@ public class Vaccination implements Serializable, SimpleDate{
 	}
 	
 	public boolean addVacDate(Calendar date) {
-		if(vactinationDates.get(vactinationDates.size()-1).compareTo(date) < 0 && date.compareTo(Calendar.getInstance()) <= 0) {
+		if(vactinationDates.size() == 0 && date.compareTo(Calendar.getInstance()) <= 0) {
+			vactinationDates.add(date);
+			return true;
+		}
+		else if(vactinationDates.get(vactinationDates.size()-1).compareTo(date) < 0 && date.compareTo(Calendar.getInstance()) <= 0) {
 			vactinationDates.add(date);
 			return true;
 		}
