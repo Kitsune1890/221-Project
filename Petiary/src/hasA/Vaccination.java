@@ -111,7 +111,7 @@ public class Vaccination implements Serializable, SimpleDate{
 				months = (int) (days/30);
 				
 				if(months <= 0 || months > vacPeriod)
-					return "You should go to vet to Vaccination of your pet.\n";
+					return "You should go to vet to vaccinate your pet.\n";
 				else {
 					newDate = (Calendar) vactinationDates.get(vactinationDates.size()-1).clone();
 					newDate.add(Calendar.MONTH, vacPeriod);
