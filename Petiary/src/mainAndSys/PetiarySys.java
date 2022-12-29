@@ -134,7 +134,7 @@ public class PetiarySys implements SimpleDate{
 	public static String displayVac(Pet pet) {
 		String str = "";
 		for(Vaccination temp : pet.getVac()) {
-			str += temp.toString();
+			str += temp.toString()+"\n"+temp.calcVacDate(pet.getbDate());
 		}
 		return str;
 	}
