@@ -95,6 +95,7 @@ public class PetiarySys implements SimpleDate{
 		for (int i = 0; i < vacTemplate.size(); i++) {
 			if(vacTemplate.get(i).getId() == vacId) {
 				Vaccination v = vacTemplate.get(i);
+				v.addVacDate(date);
 				pet.getVac().add(v);
 				return true;
 			}
