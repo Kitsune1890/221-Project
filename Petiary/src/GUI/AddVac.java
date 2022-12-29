@@ -50,15 +50,15 @@ public class AddVac extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel Title = new JLabel("Add Vacination");
+		JLabel Title = new JLabel("Add Vaccination");
 		Title.setBounds(21, 22, 103, 14);
 		contentPane.add(Title);
 		
-		JLabel type = new JLabel("Vacination Type :");
+		JLabel type = new JLabel("Vaccination Type :");
 		type.setBounds(21, 84, 110, 14);
 		contentPane.add(type);
 		
-		JLabel date = new JLabel("Last Vacination Date :");
+		JLabel date = new JLabel("Last Vaccination Date :");
 		date.setBounds(21, 118, 139, 14);
 		contentPane.add(date);
 		
