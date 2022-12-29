@@ -83,10 +83,17 @@ public class Vet implements Serializable{
 	@Override
 	public String toString() {
 		return "Vet"
-				+"\nName= " + name 
-				+ "\nAddress= " + Address
-				+ "\nPhone Number= " + PhoneNumber 
-				+ "\nOpen Days= " + OpenDays;
+				+"\nName: " + name 
+				+ "\nAddress: " + Address
+				+ "\nPhone Number: " + PhoneNumber 
+				+ "\nOpen Days:\n"
+				+ "Mon: " + (OpenDays[0] ? "Open\n" : "Close\n")
+				+ "Tue: " + (OpenDays[1] ? "Open\n" : "Close\n")
+				+ "Wed: " + (OpenDays[2] ? "Open\n" : "Close\n")
+				+ "Thu: " + (OpenDays[3] ? "Open\n" : "Close\n")
+				+ "Fri: " + (OpenDays[4] ? "Open\n" : "Close\n")
+				+ "Sat: " + (OpenDays[5] ? "Open\n" : "Close\n")
+				+ "Sun: " + (OpenDays[6] ? "Open\n" : "Close\n");
 	}
 	
 	
