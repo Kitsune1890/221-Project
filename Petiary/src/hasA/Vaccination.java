@@ -82,15 +82,17 @@ public class Vaccination implements Serializable, SimpleDate{
 	}
 	
 	public boolean addVacDate(Calendar date) {
-		if(vactinationDates.size() == 0 && date.compareTo(Calendar.getInstance()) <= 0) {
-			vactinationDates.add(date);
-			return true;
+		if ( date.compareTo(Calendar.getInstance()) <= 0) {
+			if(vactinationDates.size() == 0) {
+				vactinationDates.add(date);
+				return true;
+			}
+			else if(vactinationDates.get(vactinationDates.size()-1).compareTo(date) < 0) {
+				vactinationDates.add(date);
+				return true;
+			}
 		}
-		else if(vactinationDates.get(vactinationDates.size()-1).compareTo(date) < 0 && date.compareTo(Calendar.getInstance()) <= 0) {
-			vactinationDates.add(date);
-			return true;
-		}
-		else return false;
+		return false;
 			
 	}
 	
@@ -107,9 +109,6 @@ public class Vaccination implements Serializable, SimpleDate{
 				newDate.add(Calendar.MONTH, vacPeriod);
 				days = (double) Duration.between(sysdate.toInstant(), newDate.toInstant()).toDays();
 				months = (int) (days/30);
-				
-				System.out.println(days);
-				System.out.println(months);
 				
 				if(months <= 0 || months > vacPeriod)
 					return "You should go to vet to Vaccination of your pet.\n";
