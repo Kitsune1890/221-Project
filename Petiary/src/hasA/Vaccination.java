@@ -112,35 +112,19 @@ public class Vaccination implements Serializable, SimpleDate{
 				System.out.println(months);
 				
 				if(months <= 0 || months > vacPeriod)
-					return "You should go to vet to Vaccination of your pet";
+					return "You should go to vet to Vaccination of your pet.\n";
 				else {
 					newDate = (Calendar) vactinationDates.get(vactinationDates.size()-1).clone();
 					newDate.add(Calendar.MONTH, vacPeriod);
-					return "There is " + months + " to vaccination.\nYour recomended vaccination date is " + sdf.format(newDate.getTime());  		
+					return "There is " + months + " month(s) to vaccination.\nYour recomended vaccination date is " + sdf.format(newDate.getTime()) + "\n";  		
 				}
 					
 			}else
-				return "There is no date records";
-		}else {
-			return "Your pet is too young for this vaccine";
+				return "There are no date records.\n";
 		}
-		
-		/*
-		
-		if (vactinationDates.size() == 0) {
-			if(months < StartMonth) {
-				newDate = (Calendar) bDate.clone();
-				newDate.add(Calendar.MONTH, StartMonth);
-			}
-			else {
-				newDate = (Calendar) Calendar.getInstance();
-			}
-		}		
 		else {
-			newDate = vactinationDates.get(vactinationDates.size() - 1);
-			newDate.add(Calendar.MONTH, vacPeriod);
+			return "Your pet is too young for this vaccine.\n";
 		}
-		return newDate;*/
 		
 	}
 
@@ -150,11 +134,11 @@ public class Vaccination implements Serializable, SimpleDate{
 		for(Calendar temp : vactinationDates) {
 			str += "\n\t" + sdf.format(temp.getTime());
 		}
-		return "Vactination"
-				+ "\nName= " + Name 
-				+ "\nStart Month= " + StartMonth 
-				+ "\nVactination Period= " + vacPeriod
-				+ "\nVactination Dates= " + str + "\n";
+		return "Vaccination Info:"
+				+ "\nName: " + Name 
+				+ "\nStart Month: " + StartMonth 
+				+ "\nVactination Period: " + vacPeriod
+				+ "\nVactination Dates -> " + str + "\n";
 	}
 	
 	

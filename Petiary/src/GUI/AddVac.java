@@ -41,7 +41,7 @@ public class AddVac extends JFrame {
 	 */
 	public AddVac(MainFrame mf) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 532, 356);
+		setBounds(100, 100, 701, 356);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -68,6 +68,7 @@ public class AddVac extends JFrame {
 		contentPane.add(comboBox);
 		
 		date_tf = new JTextField();
+		date_tf.setToolTipText("ex: 12/12/2022");
 		date_tf.setBounds(157, 115, 123, 20);
 		contentPane.add(date_tf);
 		date_tf.setColumns(10);
@@ -80,16 +81,16 @@ public class AddVac extends JFrame {
 						Pet pet =  PetiarySys.searchPet(mf.getComboBox().getSelectedItem().toString());
 						int index = comboBox.getSelectedIndex();
 						if(PetiarySys.addVaccination(pet, index, calendar)) {
-							textArea.setText(pet.getId() + "'s Vaccination record added");
+							textArea.setText("Vaccination record added to" + pet.getId() + ".");
 							PetiarySys.writeIntoFile();
 						}else {
-							textArea.setText("Please check date again!!!");
+							textArea.setText("Please enter a valid date!");
 						}
 						
 						
 					} catch (ParseException e1) {
 						// TODO Auto-generated catch block
-						textArea.setText("Please Enter A date");
+						textArea.setText("Please enter a date.");
 					}
 			}
 		});
@@ -110,7 +111,7 @@ public class AddVac extends JFrame {
 		contentPane.add(show_bt);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(301, 36, 178, 226);
+		scrollPane.setBounds(301, 36, 364, 250);
 		contentPane.add(scrollPane);
 		
 		
