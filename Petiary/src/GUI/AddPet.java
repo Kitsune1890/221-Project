@@ -254,7 +254,7 @@ public class AddPet extends JFrame {
 							txtADisplay.setText("The pet named " + name + " already exists!");
 						}
 						
-				
+						idField.setText(""); nameField.setText(""); breedField.setText(""); bdateField.setText(""); weightField.setText("");
 					}
 					
 				}
@@ -302,10 +302,15 @@ public class AddPet extends JFrame {
 		
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				idField.setText(""); nameField.setText(""); breedField.setText(""); bdateField.setText(""); weightField.setText("");
 				fr.getComboBox().setModel(new DefaultComboBoxModel(PetiarySys.getPetIds()));
 				fr.setVisible(true);
 				dispose();
 			}
 		});
+		
+		
 	}
+	
+	
 }
