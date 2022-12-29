@@ -84,21 +84,24 @@ public class PetiarySys implements SimpleDate{
 	}
 	
 	public static boolean addVaccination(Pet pet, int vacId, Calendar date) {
-		for (int i = 0; i < pet.getVac().size(); i++) {
-			Vaccination v = pet.getVac().get(i);
-			if(v.getId() == vacId) {
-				return v.addVacDate(date);
+		if(date.compareTo(pet.getbDate()) > 0) {
+			for (int i = 0; i < pet.getVac().size(); i++) {
+				Vaccination v = pet.getVac().get(i);
+				if(v.getId() == vacId) {
+					return v.addVacDate(date);
+				}
+			}
+			
+			for (int i = 0; i < vacTemplate.size(); i++) {
+				if(vacTemplate.get(i).getId() == vacId) {
+					Vaccination v = vacTemplate.get(i);
+					v.addVacDate(date);
+					pet.getVac().add(v);
+					return true;
+				}
 			}
 		}
 		
-		for (int i = 0; i < vacTemplate.size(); i++) {
-			if(vacTemplate.get(i).getId() == vacId) {
-				Vaccination v = vacTemplate.get(i);
-				v.addVacDate(date);
-				pet.getVac().add(v);
-				return true;
-			}
-		}
 		
 		return false;
 	}
