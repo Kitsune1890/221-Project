@@ -103,7 +103,6 @@ public class MainFrame extends JFrame {
 					}	
 					else{
 						imageLbl.setIcon(dog);
-						System.out.println("dog");
 					}
 				}
 			}
