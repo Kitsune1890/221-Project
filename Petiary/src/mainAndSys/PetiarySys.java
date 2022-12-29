@@ -29,7 +29,6 @@ public class PetiarySys {
 	private static ArrayList<Vaccination> vacTemplate = new ArrayList<Vaccination>();
 	private final static String PetSave = "petSave.bin", VetSave = "vetSave.bin", templateVacSave = "template.bin";
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/M/yyyy");
-	 static int petid=123;
 	
 	public static boolean addCat(int id,String name, String breed, Calendar bDate, String illness, Vet vet, double weight) {
 
