@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import hasA.Vet;
+import isA.Pet;
 import mainAndSys.PetiarySys;
 
 import javax.swing.JLabel;
@@ -261,7 +262,14 @@ public class AddPet extends JFrame {
 		
 		btnSearchPet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				txtADisplay.setText(PetiarySys.searchPet(petIdField.getText()).toString());
+				Pet pet = PetiarySys.searchPet(petIdField.getText());
+				if(pet == null) {
+					txtADisplay.setText("Pet couldn't found");
+				}
+				else {
+					txtADisplay.setText(pet.toString());
+				}
+				
 			}
 		});
 		
