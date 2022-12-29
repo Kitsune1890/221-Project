@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.awt.event.ActionEvent;
@@ -217,10 +218,14 @@ public class AddPet extends JFrame {
 					String name=nameField.getText();
 					String breed=breedField.getText();
 					
-					String[] bdate=bdateField.getText().split("/");
+					Calendar cal=null;
+					try {
+						cal = PetiarySys.stringtoCalendar(bdateField.getText());
+					} catch (ParseException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					
-					Calendar cal = Calendar.getInstance();
-					cal.set(Integer.parseInt(bdate[2]), Integer.parseInt(bdate[1]), Integer.parseInt(bdate[0]));
 					
 					String illness=illnessField.getText();
 					Vet vet=PetiarySys.searchVet(cbVetList.getSelectedItem().toString());
